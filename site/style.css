@@ -1,0 +1,469 @@
+/* ==========================================================================
+   ESTILOS PRINCIPAIS — NOVARA PIZZAS E ESFIHAS
+   Design Editorial Italiano com Scrapbook & Micro-Interações
+   ========================================================================== */
+
+/* Layout Base */
+.page-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-paper);
+  background-image: radial-gradient(rgba(20, 20, 20, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Contêiner Editorial Central (Fidelidade ao Canvas do Mockup) */
+.editorial-canvas {
+  position: relative;
+  width: 100%;
+  max-width: var(--container-max-w);
+  margin: 0 auto;
+  background-color: var(--color-paper);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fio de Queijo Contínuo (Cheese Ribbon) */
+.cheese-pull-spine {
+  position: absolute;
+  top: 75px;
+  left: 50%;
+  transform: translateX(-48%);
+  width: clamp(140px, 32vw, 240px);
+  z-index: 10;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+}
+
+.cheese-pull-spine img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Seções Editoriais */
+.editorial-section {
+  position: relative;
+  width: 100%;
+  padding: var(--space-md) var(--space-sm);
+  z-index: 2;
+}
+
+/* ==========================================================================
+   SEÇÃO 1: HERO & CRUST ALCHEMY
+   ========================================================================== */
+.sec-hero {
+  padding-top: var(--space-xs);
+  padding-bottom: var(--space-md);
+  min-height: 480px;
+}
+
+/* Barra Superior */
+.hero-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  margin-bottom: var(--space-xs);
+  padding: 0 4px;
+}
+
+.badge-social-proof {
+  background-color: #000000;
+  color: #FFFFFF;
+  padding: 4px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  font-family: var(--font-sans);
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 12;
+}
+
+.proof-star {
+  font-size: clamp(0.85rem, 1.2vw, 1.05rem);
+  font-weight: 800;
+  color: #FFD700;
+  letter-spacing: 0.05em;
+}
+
+.proof-title {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  opacity: 0.85;
+}
+
+.proof-count {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: 0.05em;
+}
+
+.hero-header-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 2px;
+  z-index: 8;
+}
+
+.tag-category {
+  font-family: var(--font-sans);
+  font-size: clamp(0.65rem, 0.8vw, 0.8rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-ink-muted);
+}
+
+.note-editorial {
+  font-size: clamp(0.95rem, 1.3vw, 1.2rem);
+  color: var(--color-ink-faint);
+  transform: rotate(-3deg);
+}
+
+.hero-wax-container {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  z-index: 12;
+}
+
+.hero-seal {
+  top: 0;
+  right: 0;
+  width: clamp(40px, 8vw, 54px);
+  height: clamp(40px, 8vw, 54px);
+}
+
+.stamp-fermentation {
+  position: absolute;
+  top: 42px;
+  right: 0;
+  font-family: var(--font-sans);
+  font-size: 0.5rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--color-wax-red);
+  border: 1px dashed var(--color-wax-red);
+  padding: 1px 3px;
+  transform: rotate(4deg);
+  white-space: nowrap;
+}
+
+/* Título Monumental NOVARA */
+.brand-hero-title-wrap {
+  text-align: center;
+  position: relative;
+  margin-top: 2px;
+  margin-bottom: var(--space-xs);
+  z-index: 8;
+}
+
+.brand-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3.6rem, 13.5vw, 7.8rem);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  line-height: 0.86;
+  color: var(--color-ink);
+  text-transform: uppercase;
+}
+
+/* Camada de Adesivos Flutuantes */
+.hero-stickers-layer {
+  position: relative;
+  width: 100%;
+  height: 0;
+  z-index: 12;
+}
+
+.sticker-basil-wrap {
+  position: absolute;
+  top: -25px;
+  right: 22%;
+  transform: rotate(20deg);
+}
+
+.sticker-smile-hero {
+  top: -10px;
+  right: 4px;
+}
+
+/* Coluna Esquerda: Crust Alchemy & Tomate */
+.hero-left-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  z-index: 12;
+}
+
+.tomato-badge-flow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.note-tomato {
+  font-size: clamp(0.72rem, 0.9vw, 0.85rem);
+  color: var(--color-ink-muted);
+  line-height: 1.0;
+  max-width: 100px;
+}
+
+.title-crust-alchemy {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.92;
+}
+
+.sub-crust {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-ink);
+  letter-spacing: 0.02em;
+}
+
+.main-crust {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4.2vw, 3.2rem);
+  font-weight: 900;
+  color: var(--color-ink);
+  letter-spacing: -0.02em;
+}
+
+/* Card Massa Crua */
+.dough-card {
+  position: relative;
+  border-radius: 4px;
+  overflow: visible;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
+}
+
+.img-dough {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.postit-dough {
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+  background-color: var(--color-postit-blue);
+  padding: 6px 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transform: rotate(-3deg);
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  z-index: 15;
+  max-width: 88%;
+}
+
+.postit-hours {
+  font-family: var(--font-sans);
+  font-size: clamp(0.75rem, 1vw, 0.95rem);
+  font-weight: 800;
+  color: var(--color-ink);
+}
+
+.postit-desc {
+  font-family: var(--font-sans);
+  font-size: clamp(0.5rem, 0.65vw, 0.62rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-ink);
+  opacity: 0.85;
+  line-height: 1.1;
+}
+
+.hand-note-dough {
+  margin-top: var(--space-xs);
+  text-align: right;
+}
+
+
+
+/* Grid Editorial de Duas Colunas (Esquerda / Direita) */
+.editorial-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  align-items: center;
+  position: relative;
+}
+
+@media (max-width: 480px) {
+  .editorial-section {
+    padding: var(--space-sm) var(--space-xs);
+  }
+}
+
+/* ==========================================================================
+   COMPONENTES DECORATIVOS & SCRAPBOOK
+   ========================================================================== */
+
+/* Fitas Adesivas (Washi Tape) */
+.tape-washi {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  font-family: var(--font-hand);
+  font-size: var(--text-hand);
+  color: var(--color-ink);
+  transform: rotate(-2deg);
+  border-left: 2px dashed rgba(180, 180, 180, 0.5);
+  border-right: 2px dashed rgba(180, 180, 180, 0.5);
+}
+
+/* Selo de Cera Bordô */
+.wax-seal-badge {
+  position: absolute;
+  width: clamp(48px, 10vw, 68px);
+  height: clamp(48px, 10vw, 68px);
+  z-index: 15;
+  filter: drop-shadow(0 4px 8px rgba(130, 34, 37, 0.4));
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.wax-seal-badge:hover {
+  transform: scale(1.05) rotate(4deg);
+}
+
+/* Selo / Badge "No Compromise" */
+.badge-no-compromise {
+  display: inline-block;
+  background-color: var(--color-tag-green);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: var(--text-badge);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transform: rotate(4deg);
+}
+
+/* Prancha Polaroid */
+.polaroid-card {
+  background: #FFFFFF;
+  padding: 8px 8px 18px 8px;
+  box-shadow: var(--shadow-polaroid);
+  position: relative;
+  transition: transform var(--transition-fast);
+}
+
+.polaroid-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* Adesivos Smile e Ícones */
+.sticker-smile {
+  width: clamp(34px, 7vw, 44px);
+  height: clamp(34px, 7vw, 44px);
+  background-color: var(--color-sticker-yellow);
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  box-shadow: var(--shadow-sticker);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 12;
+}
+
+.sticker-smile svg {
+  width: 70%;
+  height: 70%;
+  fill: var(--color-ink);
+}
+
+/* Adesivo Tomate */
+.sticker-tomato {
+  width: clamp(36px, 8vw, 48px);
+  position: absolute;
+  z-index: 12;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.15));
+}
+
+/* Anotações Manuscritas */
+.hand-note {
+  font-family: var(--font-hand);
+  color: var(--color-ink-muted);
+  font-size: var(--text-hand);
+  line-height: 1.1;
+}
+
+/* Botão Vermelho 3D Pulsador */
+.buzzer-btn {
+  width: clamp(44px, 8vw, 56px);
+  height: clamp(44px, 8vw, 56px);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #FF4D4D, #9A1E1A 65%, #590B08);
+  box-shadow: 
+    0 8px 16px rgba(154, 30, 26, 0.45),
+    inset 0 2px 4px rgba(255, 255, 255, 0.6),
+    inset 0 -4px 6px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.buzzer-btn:active {
+  transform: scale(0.92) translateY(2px);
+  box-shadow: 0 3px 6px rgba(154, 30, 26, 0.4);
+}
+
+/* Botão Principal em Pílula (CTA) */
+.btn-cta-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-brand-red);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: var(--text-body);
+  letter-spacing: 0.04em;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px rgba(154, 30, 26, 0.35);
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+  text-align: center;
+}
+
+.btn-cta-pill:hover {
+  background-color: var(--color-brand-red-hover);
+  transform: translateY(-2px);
+}
+
+/* Divisor de Papel Rasgado */
+.torn-paper-edge {
+  width: 100%;
+  height: 24px;
+  background: var(--color-paper);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 30' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L0,15 Q30,8 60,18 T120,12 T180,20 T240,10 T300,16 T360,8 T420,18 T480,12 T540,22 T600,10 T660,18 T720,14 T780,22 T840,12 T900,18 T960,10 T1020,20 T1080,14 T1140,18 T1200,10 L1200,0 Z' fill='%23000'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 30' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L0,15 Q30,8 60,18 T120,12 T180,20 T240,10 T300,16 T360,8 T420,18 T480,12 T540,22 T600,10 T660,18 T720,14 T780,22 T840,12 T900,18 T960,10 T1020,20 T1080,14 T1140,18 T1200,10 L1200,0 Z' fill='%23000'/%3E%3C/svg%3E");
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 100%;
+}
