@@ -537,6 +537,177 @@
   color: var(--color-ink-muted);
 }
 
+/* ==========================================================================
+   SEÇÃO 4: TABLE & RESERVATIONS (SALÃO & DELIVERY)
+   ========================================================================== */
+.sec-reservations {
+  padding-top: var(--space-md);
+  padding-bottom: 0;
+  overflow: visible;
+}
+
+.reservations-grid {
+  align-items: center;
+  margin-bottom: var(--space-lg);
+}
+
+/* Coluna Esquerda: Título e Botão Campainha */
+.reservations-left-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  z-index: 8;
+}
+
+.title-reservations {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.92;
+  margin-bottom: var(--space-xs);
+}
+
+.line-table {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4.4vw, 3.4rem);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+}
+
+.line-reservations {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.8vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+}
+
+.reservations-interactive-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.note-service {
+  font-size: clamp(0.85rem, 1.1vw, 1.1rem);
+  color: var(--color-ink-muted);
+}
+
+.buzzer-sticker-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 6px;
+  position: relative;
+}
+
+.sticker-smile-table {
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: rotate(6deg);
+}
+
+.buzzer-btn-link {
+  display: inline-block;
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+  filter: drop-shadow(0 6px 12px rgba(154, 30, 26, 0.35));
+}
+
+.buzzer-btn-link:hover {
+  transform: scale(1.08);
+}
+
+.buzzer-btn-link:active {
+  transform: scale(0.94);
+}
+
+.img-buzzer-3d {
+  width: clamp(52px, 8vw, 68px);
+  height: clamp(52px, 8vw, 68px);
+  display: block;
+}
+
+/* Coluna Direita: Vinho e Guardanapo */
+.reservations-right-col {
+  position: relative;
+  z-index: 8;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.wine-napkin-card {
+  width: 100%;
+  max-width: 320px;
+  transform: rotate(-2deg);
+}
+
+.img-wine-napkin {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.12));
+}
+
+/* CTA Central Inferior */
+.cta-bottom-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-lg);
+  position: relative;
+  z-index: 15;
+  padding: 0 var(--space-sm);
+}
+
+.btn-cta-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-brand-red);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: clamp(0.85rem, 1.2vw, 1.15rem);
+  letter-spacing: 0.05em;
+  padding: 14px 32px;
+  border-radius: 9999px;
+  box-shadow: 0 6px 18px rgba(154, 30, 26, 0.4);
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+  text-transform: uppercase;
+}
+
+.btn-cta-pill:hover {
+  background-color: var(--color-brand-red-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(154, 30, 26, 0.5);
+}
+
+.delivery-meta-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--font-sans);
+  font-size: clamp(0.72rem, 0.9vw, 0.85rem);
+  color: var(--color-ink-muted);
+  font-weight: 600;
+}
+
+/* Rasgo de Papel no Rodapé */
+.torn-footer-edge {
+  width: 100%;
+  height: 28px;
+  background-color: var(--color-paper-dark);
+  clip-path: polygon(0% 100%, 0% 40%, 6% 10%, 14% 50%, 22% 15%, 30% 60%, 38% 20%, 46% 70%, 54% 15%, 62% 65%, 70% 25%, 78% 75%, 86% 20%, 94% 60%, 100% 30%, 100% 100%);
+  margin-top: var(--space-md);
+}
+
+
 
 
 
