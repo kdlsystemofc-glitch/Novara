@@ -296,6 +296,152 @@
   text-align: right;
 }
 
+/* ==========================================================================
+   SEÇÃO 2: MATÉRIA-PRIMA PURA
+   ========================================================================== */
+.sec-ingredients {
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-lg);
+  overflow: visible;
+}
+
+.ingredients-grid {
+  align-items: center;
+}
+
+/* Coluna Esquerda: Polaroid */
+.ingredients-left-col {
+  position: relative;
+  z-index: 8;
+}
+
+.polaroid-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 280px;
+  transform: rotate(-3deg);
+  transition: transform var(--transition-fast);
+}
+
+.tape-tag-polaroid {
+  position: absolute;
+  top: -12px;
+  right: 10px;
+  background-color: var(--color-tag-green);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: clamp(0.55rem, 0.7vw, 0.68rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 2px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  transform: rotate(4deg);
+}
+
+.img-polaroid {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.sticker-smile-polaroid {
+  bottom: -10px;
+  left: -8px;
+  transform: rotate(-8deg);
+}
+
+/* Coluna Direita: Tipografia & Badges */
+.ingredients-right-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  z-index: 8;
+  padding-left: var(--space-xs);
+}
+
+.washi-note-wrap {
+  margin-bottom: var(--space-2xs);
+}
+
+.title-materia-prima {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.92;
+  margin-bottom: var(--space-xs);
+}
+
+.line-materia {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 3.2vw, 2.5rem);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+  white-space: nowrap;
+}
+
+.line-pura {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4.5vw, 3.5rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+}
+
+.no-compromise-wrap {
+  margin-bottom: var(--space-md);
+  max-width: 90%;
+}
+
+.badge-no-compromise {
+  display: inline-block;
+  background-color: var(--color-tag-green);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: clamp(0.52rem, 0.7vw, 0.68rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transform: rotate(3deg);
+  white-space: nowrap;
+}
+
+/* Selo com Retalho Verde no Canto Direito */
+.seal-green-scrap-wrap {
+  position: absolute;
+  right: -10px;
+  bottom: -35px;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paper-green-scrap {
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  background-color: var(--color-brand-green);
+  clip-path: polygon(0% 15%, 85% 0%, 100% 85%, 20% 100%, 5% 75%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: rotate(12deg);
+}
+
+.scrap-seal {
+  position: relative;
+  z-index: 10;
+  transform: rotate(-6deg);
+}
+
+
 
 
 /* Grid Editorial de Duas Colunas (Esquerda / Direita) */
