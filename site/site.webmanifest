@@ -1,0 +1,29 @@
+{
+  "name": "Novara Pizzas e Esfihas",
+  "short_name": "Novara",
+  "description": "Forneria popular de entregas e retiradas em São Bernardo do Campo com massas de fermentação lenta 48h, forno a lenha e esfihas artesanais.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#F5EFEB",
+  "theme_color": "#F5EFEB",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

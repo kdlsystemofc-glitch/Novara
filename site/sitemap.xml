@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  sitemap.xml — Novara Pizzas e Esfihas
+  Conforme especificação do projeto, todas as URLs dependentes de domínio absoluto
+  permanecem comentadas/placeholder até que o campo 'domain' em seo.config.json seja preenchido.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Descomentar e substituir [DOMINIO_DEFINITIVO] após publicação do domínio em seo.config.json:
+  <url>
+    <loc>https://[DOMINIO_DEFINITIVO]/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  -->
+</urlset>

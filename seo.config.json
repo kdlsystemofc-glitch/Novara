@@ -1,0 +1,33 @@
+{
+  "domain": "",
+  "siteUrl": "",
+  "business": {
+    "name": "Novara Pizzas e Esfihas",
+    "legalName": "Novara Pizzas e Esfihas",
+    "tradeName": "Novara Pizzas e Esfihas - I",
+    "description": "Forneria popular de entregas e retiradas com pizzas diversas e esfihas de sabores tradicionais e especiais, massas com fermentação lenta de 48h e forno a lenha.",
+    "telephone": "+55-11-4109-0313",
+    "telephoneAlt": "+55-11-4171-1234",
+    "address": {
+      "streetAddress": "R. Wadia Jafete Assad, 441",
+      "neighborhood": "Dos Casa",
+      "addressLocality": "São Bernardo do Campo",
+      "addressRegion": "SP",
+      "postalCode": "09850-090",
+      "addressCountry": "BR"
+    },
+    "plusCode": "7CCH+9X São Bernardo do Campo, São Paulo",
+    "menuUrl": "https://novara-cafefilho.wabiz.delivery",
+    "deliveryPlatform": "Wabiz Delivery",
+    "cuisine": [
+      "Pizza",
+      "Esfiha",
+      "Italiana"
+    ],
+    "notes": {
+      "priceRange": "Informado por terceiros no Google Maps como R$ 20–120 por pessoa. Não confirmado pela diretoria.",
+      "openingHours": "Abre às 18:00 (abre às segundas-feiras confirmado por cliente). Grade completa de fechamento pendente.",
+      "ratings": "Nota 4.5 com 895 avaliações no Google Maps. Conforme políticas do Google Search Central, avaliações de terceiros não devem ser usadas como aggregateRating no próprio site."
+    }
+  }
+}

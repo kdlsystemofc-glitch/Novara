@@ -1,0 +1,9 @@
+# robots.txt — Novara Pizzas e Esfihas
+# Configuração de indexação para rastreadores de mecanismos de busca
+
+User-agent: *
+Allow: /
+
+# Diretiva de Sitemap dependente de domínio definitivo:
+# (Ativar e substituir [DOMINIO_DEFINITIVO] pelo valor preenchido em seo.config.json quando o domínio for publicado)
+# Sitemap: https://[DOMINIO_DEFINITIVO]/sitemap.xml

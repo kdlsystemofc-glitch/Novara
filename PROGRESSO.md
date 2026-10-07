@@ -97,7 +97,23 @@
     - **Accessibility: 100 / 100**
     - **Best Practices: 92 / 100**
     - **SEO: 100 / 100**
-  - **Regressão Visual & Motion:** 100% dos testes Playwright aprovados (12 resoluções, hero letters, todas as 4 seções e navegação rápida).
+- [x] **Etapa de SEO Local (Concluída — SEO 100/100, Performance 91/100):**
+  - **Metadados de Alta Fidelidade (CLIENTE.md):** `<title>` otimizado com nome comercial e localização (*"Novara Pizzas e Esfihas — Forneria & Pizzaria em São Bernardo do Campo"*), `<meta name="description">` específica baseada nos diferenciais reais (bairro Dos Casa, forno a lenha, massas 48h, esfihas, delivery e balcão), `theme-color: #F5EFEB`, `lang="pt-BR"`.
+  - **Configuração Centralizada de Domínio:** Criação de [`seo.config.json`](file:///c:/Oficial/Novara%203/seo.config.json) com todos os dados canônicos confirmados. Todas as tags dependentes de URL absoluta (`canonical`, `og:url`, `og:image`, `sitemap.xml`) configuradas com placeholders comentados prontos para ativação assim que o domínio definitivo for inserido no arquivo de configuração.
+  - **Open Graph & Twitter Cards:** Criação da imagem de compartilhamento 1200x630 em [`site/assets/og-image.jpg`](file:///c:/Oficial/Novara%203/site/assets/og-image.jpg) e [`og-image.webp`](file:///c:/Oficial/Novara%203/site/assets/og-image.webp) baseada nas composições reais do forno a lenha, selo botânico e tipografia de alto contraste sem textos pequenos.
+  - **JSON-LD Schema.org (`Restaurant`):**
+    - Dados confirmados: `@type: Restaurant`, nome, endereço completo (R. Wadia Jafete Assad, 441 - Dos Casa, SBC), telefones, culinárias (`Pizza`, `Esfiha`, `Italiana`), link de cardápio Wabiz e ação de pedido `OrderAction`.
+    - Conformidade anti-spam do Google: Campos incertos (faixa de preço informada por terceiros, horários detalhados de fechamento) mantidos comentados. Avaliações de terceiros (895 avaliações 4.5★ do Google Maps) devidamente isoladas e não inseridas como `aggregateRating` no próprio site, respeitando as diretrizes estritas do Google Search Central contra self-serving reviews.
+  - **Arquivos de Rastreamento e PWA:**
+    - [`site/robots.txt`](file:///c:/Oficial/Novara%203/site/robots.txt) com permissão para todos os crawlers e diretiva de sitemap comentada.
+    - [`site/sitemap.xml`](file:///c:/Oficial/Novara%203/site/sitemap.xml) seguindo o protocolo sitemaps.org.
+    - [`site/site.webmanifest`](file:///c:/Oficial/Novara%203/site/site.webmanifest) com ícones PWA (192px, 512px) e Apple Touch Icon (`site/apple-touch-icon.png`).
+  - **Semântica HTML5 Rigorosa:** Um único `<h1>` (`NOVARA`), hierarquia linear de quatro `<h2>`, todos os 8 assets informativos com `alt` rico em português e descritivo.
+  - **Resultados Lighthouse Mobile:**
+    - **SEO: 100 / 100**
+    - **Performance: 91 / 100**
+    - **Accessibility: 100 / 100**
+    - **Best Practices: 92 / 100**
 
 ---
 
@@ -105,7 +121,9 @@
 - **Layout Estático:** 100% responsivo aprovado (12 resoluções, sem contêiner fixo, full-bleed).
 - **Sistema de Motion:** Fases A, B e C concluídas com coreografia do Hero de alto impacto artesanal.
 - **Otimização:** Lighthouse Mobile 91/100, FCP 1.7s, LCP 3.3s, TBT 0ms, CLS 0.062, Speed Index 1.7s.
-- **Tags & Commits:** `motion-pronto` -> `otimizacao pronta`.
+- **SEO Local:** 100/100, JSON-LD Schema.org Restaurant sem dados incertos, OG 1200x630, robots, sitemap, PWA manifest e seo.config.json.
+- **Tags & Commits:** `motion-pronto` -> `otimizacao pronta` -> `seo pronto`.
+
 
 
 
