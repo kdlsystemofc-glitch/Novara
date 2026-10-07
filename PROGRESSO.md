@@ -42,8 +42,22 @@
   - **Regra de Ouro documentada:** Incluída formalmente em `CLAUDE.md` e `DESIGN.md` (*"A largura do mockup NUNCA vira um max-width fixo do site inteiro — ela é só a proporção de referência, extrapolada para a largura real de cada tela"*).
   - **Auditoria Playwright Completa:** Capturas geradas e verificadas sem nenhum overflow em **390px**, **768px**, **1024px**, **1440px**, **1920px** e **2560px**.
 
+- [x] **FASE A: Base Global de Motion (Concluída)**
+  - Criação do baseline [`motion-baseline.md`](file:///c:/Oficial/Novara%203/motion-baseline.md) com métricas de Lighthouse e requisitos de preservação visual.
+  - Hospedagem local dos scripts vendor GSAP 3.14, ScrollTrigger e Lenis Smooth Scroll em `site/js/vendor/`.
+  - Construção do núcleo declarativo em [`site/js/motion.js`](file:///c:/Oficial/Novara%203/site/js/motion.js):
+    - 3 Modos: `full`, `reduced` (respeitando `prefers-reduced-motion`) e `paused` (suporte a congelamento manual).
+    - Qualidade dinâmica: `high` vs `low` baseado em hardware, memória, conexão e tamanho de tela.
+    - Suporte a atributos declarativos: `[data-reveal]`, `[data-parallax]`, `[data-loop]`.
+    - Ciclo de vida: pausa de animações e loops fora da tela via ScrollTrigger e em aba oculta via `visibilitychange`.
+    - Proteção estrutural: `.cheese-pull-spine` e seus ancestrais sem transformações ou filtros que criem novo contexto de empilhamento.
+  - Suíte de regressão automatizada [`scripts/test_motion_base.py`](file:///c:/Oficial/Novara%203/scripts/test_motion_base.py) executada com sucesso (0 erros, carregamento após load/interação, sem dependência de JS na dobra inicial).
+  - Lighthouse Mobile pós-Fase A: Performance 66/100 (variação de apenas 2 pontos em relação ao baseline de 68), Acessibilidade 100/100, Melhores Práticas 88/100, SEO 91/100.
+  - Tag registrada: `motion-base`.
+
 ---
 
-## 2. Próximos Passos (Fase de Motion / Interatividade)
-1. Implementar transições de entrada suaves e micro-interações pós-load conforme `DESIGN.md`.
-2. Conectar links finais assim que confirmados pelo cliente.
+## 2. Próximos Passos (Fases B e C de Motion)
+1. **FASE B:** Implementar animações declarativas seção por seção (Hero, Matéria-Prima, Forno & Tempo, Reservas).
+2. **FASE C:** Botão de pausa acessível, inventário de motion, avaliação de ritmo e tag `motion-pronto`.
+

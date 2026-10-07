@@ -41,8 +41,9 @@
 .cheese-pull-spine {
   position: absolute;
   top: clamp(60px, 5.8vw, 100px);
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  margin-inline: auto;
   width: clamp(300px, 42vw, 660px);
   z-index: 10;
   pointer-events: none;
