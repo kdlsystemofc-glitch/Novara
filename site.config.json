@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "comment": "CONFIGURAÇÃO CENTRAL DO SITE — NOVARA PIZZAS E ESFIHAS. Edite este arquivo para preencher os dados reais do cliente e execute 'python scripts/apply_site_config.py' para reconstruir o site automaticamente.",
+  "production": {
+    "domain": "",
+    "siteUrl": "",
+    "instructions": "Insira o domínio registrado (ex: 'novarapizzas.com.br') e a URL completa (ex: 'https://novarapizzas.com.br'). Ao preencher, o script ativa o canonical, sitemap.xml e Open Graph absoluto."
+  },
+  "business": {
+    "name": "Novara Pizzas e Esfihas",
+    "legalName": "Novara Pizzas e Esfihas",
+    "tradeName": "Novara Pizzas e Esfihas - I",
+    "description": "Forneria popular de entregas e retiradas com pizzas diversas e esfihas de sabores tradicionais e especiais, massas com fermentação lenta de 48h e forno a lenha.",
+    "telephone": "+55-11-4109-0313",
+    "telephoneAlt": "+55-11-4171-1234",
+    "address": {
+      "streetAddress": "R. Wadia Jafete Assad, 441",
+      "neighborhood": "Dos Casa",
+      "addressLocality": "São Bernardo do Campo",
+      "addressRegion": "SP",
+      "postalCode": "09850-090",
+      "addressCountry": "BR"
+    },
+    "plusCode": "7CCH+9X São Bernardo do Campo, São Paulo",
+    "geo": {
+      "latitude": -23.7166,
+      "longitude": -46.5500
+    },
+    "menuUrl": "https://novara-cafefilho.wabiz.delivery",
+    "deliveryPlatform": "Wabiz Delivery",
+    "cuisine": [
+      "Pizza",
+      "Esfiha",
+      "Italiana"
+    ]
+  },
+  "pendingClientData": {
+    "cnpj": {
+      "value": "",
+      "status": "pendente",
+      "description": "CNPJ oficial da unidade Dos Casa para exibição no rodapé legal."
+    },
+    "whatsapp": {
+      "value": "",
+      "status": "pendente",
+      "description": "Número exclusivo de atendimento WhatsApp (ex: '+5511999999999') para link direto 'api.whatsapp.com/send'."
+    },
+    "priceRange": {
+      "value": "",
+      "thirdPartyEstimate": "R$ 20–120",
+      "status": "pendente_confirmacao",
+      "description": "Faixa de preço oficial ou ticket médio por pessoa para rich snippet do Google (ex: '$$' ou 'R$ 40–80')."
+    },
+    "openingHours": {
+      "status": "pendente_detalhes",
+      "confirmed": "Abre diariamente às 18:00 (abre às segundas-feiras confirmado).",
+      "specification": [
+        {
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "18:00",
+          "closes": ""
+        }
+      ],
+      "description": "Horário exato de fechamento de cada dia (ex: 23:30 de dom-qui, 00:00 de sex-sab) para habilitar o badge 'Aberto agora' no Google Search."
+    },
+    "social": {
+      "instagram": "",
+      "facebook": "",
+      "tiktok": "",
+      "status": "pendente",
+      "description": "Links dos perfis sociais oficiais do cliente para a marcação sameAs no Schema.org e links no rodapé."
+    },
+    "analytics": {
+      "googleAnalyticsId": "",
+      "googleTagManagerId": "",
+      "status": "pendente",
+      "description": "Identificador GA4 (G-XXXXXXX) ou GTM (GTM-XXXXXXX) se o cliente desejar mensuração de tráfego."
+    },
+    "officialPhotography": {
+      "status": "imagens_ia_provisorias",
+      "description": "As imagens em 'site/assets/' foram recriadas com fidelidade fotográfica idêntica à referência visual. Devem ser validadas e/ou substituídas por fotos dos pratos reais da Novara antes da campanha de lançamento.",
+      "imageSlots": [
+        {
+          "slot": "Dough Fermentation",
+          "currentFile": "site/assets/dough-fermentation-1600.webp",
+          "description": "Massa de pizza crua descansando sobre bancada rústica enfarinhada."
+        },
+        {
+          "slot": "Raw Ingredients",
+          "currentFile": "site/assets/raw-ingredients-1600.webp",
+          "description": "Tomates San Marzano, manjericão fresco e mussarela de búfala em estilo polaroid."
+        },
+        {
+          "slot": "Wood-Fired Oven",
+          "currentFile": "site/assets/wood-fired-oven-1600.webp",
+          "description": "Forno a lenha napolitano em chamas vivas com base rasgada."
+        },
+        {
+          "slot": "Wine and Napkin",
+          "currentFile": "site/assets/wine-napkin-1600.webp",
+          "description": "Taça de vinho tinto sobre toalha xadrez com fatias de pizza servidas."
+        }
+      ]
+    }
+  }
+}

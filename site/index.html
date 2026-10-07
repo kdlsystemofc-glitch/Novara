@@ -68,45 +68,48 @@
     ==============================================================================
   -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Restaurant",
-    "@id": "https://[DOMINIO_DEFINITIVO]/#restaurant",
-    "name": "Novara Pizzas e Esfihas",
-    "legalName": "Novara Pizzas e Esfihas",
-    "description": "Forneria popular de entregas e retiradas com pizzas diversas e esfihas de sabores tradicionais e especiais, massas com fermentação lenta de 48h e forno a lenha.",
-    "telephone": "+55-11-4109-0313",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "R. Wadia Jafete Assad, 441",
-      "addressLocality": "São Bernardo do Campo",
-      "addressRegion": "SP",
-      "postalCode": "09850-090",
-      "addressCountry": "BR"
-    },
-    "servesCuisine": [
-      "Pizza",
-      "Esfiha",
-      "Italiana"
-    ],
-    "hasMenu": "https://novara-cafefilho.wabiz.delivery",
-    "acceptsReservations": true,
-    "potentialAction": {
-      "@type": "OrderAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://novara-cafefilho.wabiz.delivery",
-        "inLanguage": "pt-BR",
-        "actionPlatform": [
-          "http://schema.org/DesktopWebPlatform",
-          "http://schema.org/MobileWebPlatform"
-        ]
-      },
-      "deliveryMethod": [
-        "http://purl.org/goodrelations/v1#DeliveryModeOwnFleet"
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Novara Pizzas e Esfihas",
+  "legalName": "Novara Pizzas e Esfihas",
+  "alternateName": "Novara Pizzas e Esfihas - I",
+  "description": "Forneria popular de entregas e retiradas com pizzas diversas e esfihas de sabores tradicionais e especiais, massas com fermentação lenta de 48h e forno a lenha.",
+  "telephone": "+55-11-4109-0313",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "R. Wadia Jafete Assad, 441",
+    "addressLocality": "São Bernardo do Campo",
+    "addressRegion": "SP",
+    "postalCode": "09850-090",
+    "addressCountry": "BR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -23.7166,
+    "longitude": -46.55
+  },
+  "servesCuisine": [
+    "Pizza",
+    "Esfiha",
+    "Italiana"
+  ],
+  "menu": "https://novara-cafefilho.wabiz.delivery",
+  "potentialAction": {
+    "@type": "OrderAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://novara-cafefilho.wabiz.delivery",
+      "actionPlatform": [
+        "http://schema.org/DesktopWebPlatform",
+        "http://schema.org/MobileWebPlatform"
       ]
-    }
+    },
+    "deliveryMethod": [
+      "http://purl.org/goodrelations/v1#DeliveryModeOwnFleet"
+    ]
   }
+}
   </script>
 </head>
 <body>

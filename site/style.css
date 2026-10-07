@@ -761,7 +761,8 @@
 
 .img-buzzer-3d {
   width: clamp(72px, 6.5vw, 96px);
-  height: clamp(72px, 6.5vw, 96px);
+  height: auto;
+  aspect-ratio: 4 / 3;
   display: block;
 }
 

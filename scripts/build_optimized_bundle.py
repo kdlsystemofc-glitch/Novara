@@ -50,17 +50,26 @@ def build():
 
     # 2. Minificar motion.js
     motion_js_path = os.path.join(SITE_DIR, "js", "motion.js")
+    min_motion_path = os.path.join(SITE_DIR, "js", "motion.min.js")
     with open(motion_js_path, "r", encoding="utf-8") as f:
         motion_code = f.read()
 
-    minified_motion = minify_js(motion_code)
-    min_motion_path = os.path.join(SITE_DIR, "js", "motion.min.js")
-    with open(min_motion_path, "w", encoding="utf-8") as f:
-        f.write(minified_motion)
-
-    print(f"JavaScript próprio (motion.js):")
-    print(f"  - Original: {len(motion_code) / 1024:.1f} KB")
-    print(f"  - Minificado: {len(minified_motion) / 1024:.1f} KB (Salvo em site/js/motion.min.js)")
+    import subprocess
+    import sys
+    try:
+        cmd = ["npx.cmd" if sys.platform == "win32" else "npx", "terser", motion_js_path, "-c", "-m", "-o", min_motion_path]
+        subprocess.run(cmd, check=True, capture_output=True)
+        final_size = os.path.getsize(min_motion_path)
+        print(f"JavaScript próprio (motion.js):")
+        print(f"  - Original: {len(motion_code) / 1024:.1f} KB")
+        print(f"  - Minificado (Terser): {final_size / 1024:.1f} KB (Salvo em site/js/motion.min.js)")
+    except Exception:
+        minified_motion = minify_js(motion_code)
+        with open(min_motion_path, "w", encoding="utf-8") as f:
+            f.write(minified_motion)
+        print(f"JavaScript próprio (motion.js):")
+        print(f"  - Original: {len(motion_code) / 1024:.1f} KB")
+        print(f"  - Minificado (Regex): {len(minified_motion) / 1024:.1f} KB (Salvo em site/js/motion.min.js)")
 
     # 3. Criar favicon SVG artesanal e favicon.ico para zerar erro 404
     favicon_svg = '''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
