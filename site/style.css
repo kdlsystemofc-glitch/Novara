@@ -978,3 +978,70 @@
     color-scheme: light;
   }
 }
+
+/* ==========================================================================
+   CONTROLE ACESSÍVEL DE MOTION (BOTÃO PLAY/PAUSE)
+   ========================================================================== */
+.motion-toggle-btn {
+  position: fixed;
+  bottom: 18px;
+  left: 18px;
+  z-index: 1000;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  min-height: 44px;
+  min-width: 44px;
+  font-family: var(--font-secondary, 'Oswald', sans-serif);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #141414;
+  background-color: rgba(245, 239, 235, 0.94);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1.5px solid #141414;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.motion-toggle-btn:hover {
+  background-color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+.motion-toggle-btn:focus-visible {
+  outline: 3px solid #D32F2F;
+  outline-offset: 2px;
+}
+
+.motion-toggle-btn:active {
+  transform: translateY(0);
+}
+
+.motion-toggle-btn[aria-pressed="true"] {
+  background-color: #E0D3C5;
+  border-color: #D32F2F;
+  color: #9A1E1A;
+}
+
+.motion-toggle-btn .motion-toggle-icon {
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+@media (max-width: 480px) {
+  .motion-toggle-btn {
+    bottom: 12px;
+    left: 12px;
+    padding: 6px 10px;
+    font-size: 0.72rem;
+  }
+}
+

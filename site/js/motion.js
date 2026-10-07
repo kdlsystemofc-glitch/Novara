@@ -380,6 +380,32 @@
     },
 
     /**
+     * Configurar botão acessível de toggle de animações (Play/Pause)
+     */
+    setupToggleButton() {
+      const btn = document.getElementById('motion-toggle-btn');
+      if (!btn) return;
+
+      const updateBtnUI = () => {
+        const isPaused = this.mode === 'paused';
+        btn.setAttribute('aria-pressed', isPaused ? 'true' : 'false');
+        btn.setAttribute('aria-label', isPaused ? 'Retomar animações do site' : 'Pausar animações do site');
+        const icon = btn.querySelector('.motion-toggle-icon');
+        const label = btn.querySelector('.motion-toggle-label');
+        if (icon) icon.textContent = isPaused ? '▶' : '⏸';
+        if (label) label.textContent = isPaused ? 'Retomar Motion' : 'Pausar Motion';
+      };
+
+      btn.addEventListener('click', () => {
+        this.togglePause();
+        updateBtnUI();
+      });
+
+      window.addEventListener('novaramotion:modechange', updateBtnUI);
+      updateBtnUI();
+    },
+
+    /**
      * Inicialização geral do motor
      */
     init() {
@@ -395,6 +421,7 @@
       this.setupReveals();
       this.setupParallax();
       this.setupLoops();
+      this.setupToggleButton();
 
       document.body.classList.add('js-motion-ready');
       console.log('[NovaraMotion] Motor de motion inicializado com sucesso.');
