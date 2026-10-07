@@ -11,6 +11,8 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
   background-color: var(--color-paper);
   overflow-x: clip;
   display: flex;
@@ -688,7 +690,11 @@
 }
 
 .buzzer-btn-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
   cursor: pointer;
   transition: transform var(--transition-fast);
   filter: drop-shadow(0 8px 18px rgba(154, 30, 26, 0.35));
@@ -712,6 +718,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
   background-color: var(--color-brand-red);
   color: #FFFFFF;
   font-family: var(--font-sans);
@@ -724,7 +732,8 @@
   transition: background-color var(--transition-fast), transform var(--transition-fast);
   text-transform: uppercase;
   text-decoration: none;
-  white-space: nowrap;
+  text-align: center;
+  line-height: 1.25;
 }
 
 .btn-cta-pill:hover {
@@ -772,6 +781,7 @@
   width: 100%;
   height: clamp(32px, 4vw, 60px);
   background-color: var(--color-paper-dark);
+  -webkit-clip-path: polygon(0% 100%, 0% 35%, 5% 10%, 12% 55%, 19% 15%, 26% 65%, 33% 20%, 41% 75%, 49% 15%, 57% 65%, 65% 25%, 73% 75%, 81% 20%, 89% 60%, 96% 25%, 100% 40%, 100% 100%);
   clip-path: polygon(0% 100%, 0% 35%, 5% 10%, 12% 55%, 19% 15%, 26% 65%, 33% 20%, 41% 75%, 49% 15%, 57% 65%, 65% 25%, 73% 75%, 81% 20%, 89% 60%, 96% 25%, 100% 40%, 100% 100%);
   margin-top: clamp(1rem, 2vw, 2.5rem);
 }
@@ -785,6 +795,7 @@
   display: inline-block;
   padding: 4px 12px;
   background: rgba(255, 255, 255, 0.78);
+  -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   font-family: var(--font-hand);
@@ -800,6 +811,8 @@
   position: absolute;
   width: clamp(48px, 6vw, 68px);
   height: clamp(48px, 6vw, 68px);
+  min-width: 44px;
+  min-height: 44px;
   z-index: 15;
   filter: drop-shadow(0 4px 8px rgba(130, 34, 37, 0.4));
   cursor: pointer;
@@ -871,6 +884,8 @@
   .ingredients-right-col,
   .oven-right-col,
   .reservations-left-col {
+    position: relative;
+    z-index: 6;
     padding-inline: clamp(1rem, 4vw, 2rem);
   }
 
@@ -882,6 +897,8 @@
     display: flex;
     justify-content: center;
     padding-inline: clamp(0.75rem, 3vw, 1.5rem);
+    position: relative;
+    z-index: 6;
   }
 
   .dough-card,
@@ -902,10 +919,14 @@
   }
 
   .cheese-pull-spine {
-    width: clamp(240px, 72vw, 320px);
-    top: 55px;
-    z-index: 5;
-    opacity: 0.9;
+    width: clamp(200px, 60vw, 290px);
+    top: 50px;
+    right: clamp(-15px, 2vw, 15px);
+    left: auto;
+    transform: none;
+    z-index: 2;
+    opacity: 0.85;
+    pointer-events: none;
   }
 
   .brand-hero-title {
@@ -920,5 +941,39 @@
   .seal-green-scrap-wrap {
     bottom: -10px;
     right: 10px;
+  }
+}
+
+/* Telas Muito Estreitas (≤ 480px, ex: iPhone SE, 320px/360px) */
+@media (max-width: 480px) {
+  .hero-header-center {
+    display: none;
+  }
+
+  .hero-top-bar {
+    align-items: center;
+  }
+
+  .badge-social-proof {
+    padding: 3px 8px;
+  }
+
+  .stamp-fermentation {
+    font-size: 0.45rem;
+    top: 38px;
+  }
+
+  .btn-cta-pill {
+    padding: 10px 16px;
+    font-size: 0.78rem;
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+/* Modo Escuro do Sistema / Navegador (Protege Contraste e Papel Artesanal) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: light;
   }
 }
