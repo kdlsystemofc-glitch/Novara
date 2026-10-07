@@ -15,21 +15,21 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="page-wrapper">
-    <main class="editorial-canvas">
-      
-      <!-- Fio de Queijo Contínuo da Assinatura (Spine Central) -->
-      <div class="cheese-pull-spine" aria-hidden="true">
-        <picture>
-          <source srcset="assets/cheese-ribbon-1600.webp" media="(min-width: 600px)">
-          <img src="assets/cheese-ribbon-800.webp" alt="Fio de queijo mozzarella puxado da pizza" width="267" height="800">
-        </picture>
-      </div>
+  <main id="main-content" class="site-main">
+    
+    <!-- Fio de Queijo Contínuo da Assinatura (Spine Central) -->
+    <div class="cheese-pull-spine" aria-hidden="true">
+      <picture>
+        <source srcset="assets/cheese-ribbon-1600.webp" media="(min-width: 600px)">
+        <img src="assets/cheese-ribbon-800.webp" alt="Fio de queijo mozzarella puxado da pizza" width="267" height="800">
+      </picture>
+    </div>
 
-      <!-- ====================================================================
-           SEÇÃO 1: HERO & CRUST ALCHEMY
-           ==================================================================== -->
-      <section id="hero-crust-alchemy" class="editorial-section sec-hero">
+    <!-- ====================================================================
+         SEÇÃO 1: HERO & CRUST ALCHEMY
+         ==================================================================== -->
+    <section id="hero-crust-alchemy" class="editorial-section sec-hero">
+      <div class="editorial-container">
         
         <!-- Faixa de Topo / Header Metadados -->
         <header class="hero-top-bar">
@@ -117,12 +117,14 @@
 
         </div>
 
-      </section>
+      </div>
+    </section>
 
-      <!-- ====================================================================
-           SEÇÃO 2: MATÉRIA-PRIMA PURA
-           ==================================================================== -->
-      <section id="materia-prima-pura" class="editorial-section sec-ingredients">
+    <!-- ====================================================================
+         SEÇÃO 2: MATÉRIA-PRIMA PURA
+         ==================================================================== -->
+    <section id="materia-prima-pura" class="editorial-section sec-ingredients">
+      <div class="editorial-container">
         
         <div class="editorial-grid ingredients-grid">
           
@@ -177,12 +179,14 @@
 
         </div>
 
-      </section>
+      </div>
+    </section>
 
-      <!-- ====================================================================
-           SEÇÃO 3: FORNO & TEMPO
-           ==================================================================== -->
-      <section id="forno-e-tempo" class="editorial-section sec-oven">
+    <!-- ====================================================================
+         SEÇÃO 3: FORNO & TEMPO
+         ==================================================================== -->
+    <section id="forno-e-tempo" class="editorial-section sec-oven">
+      <div class="editorial-container">
         
         <div class="editorial-grid oven-grid">
           
@@ -222,12 +226,14 @@
 
         </div>
 
-      </section>
+      </div>
+    </section>
 
-      <!-- ====================================================================
-           SEÇÃO 4: TABLE & RESERVATIONS (SALÃO & DELIVERY)
-           ==================================================================== -->
-      <section id="table-reservations" class="editorial-section sec-reservations">
+    <!-- ====================================================================
+         SEÇÃO 4: TABLE & RESERVATIONS (SALÃO & DELIVERY)
+         ==================================================================== -->
+    <section id="table-reservations" class="editorial-section sec-reservations">
+      <div class="editorial-container">
         
         <div class="editorial-grid reservations-grid">
           
@@ -288,12 +294,13 @@
           </div>
         </div>
 
-        <!-- Rasgo de Papel do Rodapé -->
-        <footer class="torn-footer-edge" aria-hidden="true"></footer>
+      </div>
 
-      </section>
+      <!-- Rasgo de Papel do Rodapé (Full-Bleed 100% de ponta a ponta) -->
+      <footer class="torn-footer-edge" aria-hidden="true"></footer>
 
-    </main>
-  </div>
+    </section>
+
+  </main>
 </body>
 </html>

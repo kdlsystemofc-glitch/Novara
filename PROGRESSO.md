@@ -34,9 +34,13 @@
     - Construída com título editorial, buzzer button 3D interativo, taça de vinho com guardanapo xadrez, botão em pílula para delivery Wabiz/telefone e rodapé rasgado.
     - Testada isolada e costura com a Seção 3 em 1440px e 390px.
     - Commit: `seção table-reservations pronta` (hash: `454a303`).
-- [x] **Etapa 4: Auditoria Visual Final Multidispositivo**
-  - Capturas de página inteira geradas e validadas em **1440px (Desktop)**, **768px (Tablet)** e **390px (Mobile)**.
-  - Verificação de variáveis de push: a variável `GH_TOKEN` não está configurada no ambiente atual; os commits foram preservados localmente no repositório Git.
+- [x] **Etapa 5: Correção da Arquitetura de Layout (Full-Bleed e Responsividade Real)**
+  - **Problema corrigido:** Remoção do container fixo `.editorial-canvas` (`max-width: 680px`), do box-shadow lateral e do background pontilhado de `.page-wrapper`.
+  - **Nova arquitetura:** Fundo de papel artesanal contínuo e full-bleed de ponta a ponta (100% da tela) em todas as seções.
+  - **Containers fluidos:** Utilização de `.editorial-container` com `--container-max-w: clamp(1180px, 90vw, 2200px)`, mantendo leitura confortável para parágrafos e imponência visual proporcional para títulos e imagens.
+  - **Fio de queijo contínuo:** Escalando fluidamente via `clamp(150px, 18vw, 360px)`, perfeitamente ancorado na costura central entre as duas colunas do grid sem distorção.
+  - **Regra de Ouro documentada:** Incluída formalmente em `CLAUDE.md` e `DESIGN.md` (*"A largura do mockup NUNCA vira um max-width fixo do site inteiro — ela é só a proporção de referência, extrapolada para a largura real de cada tela"*).
+  - **Auditoria Playwright Completa:** Capturas geradas e verificadas sem nenhum overflow em **390px**, **768px**, **1024px**, **1440px**, **1920px** e **2560px**.
 
 ---
 

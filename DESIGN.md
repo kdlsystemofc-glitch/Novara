@@ -29,12 +29,12 @@ O mockup em `design/mockup-full.png` é uma peça gráfica conceitual de altíss
 - **Avaliação Honesta de Viabilidade:**
   - *Tentar recriar em CSS puro / SVG de vetor simples:* **INVIÁVEL E ARTIFICIAL**. Queijo derretido com bolhas de queijo tostado, elasticidade orgânica e gotas líquidas ficaria com aparência de borracha ou plástico vetorizado amarelo.
   - *Abordagem Viável e Robusta:* Tratar o fio de queijo como um **Plate Gráfico de Alta Resolução (PNG-24 com canal alpha transparente)** ou um conjunto de 2 a 3 segmentos otimizados (topo com fatia, extensão intermediária em "S", gota final).
-  - *Desafio de Responsividade:* Em telas móveis (360px a 430px), o fio desce pelo centro enquanto o conteúdo se alinha de forma compacta. Em desktops amplos (1024px+), o fio central precisa permanecer dentro de uma coluna de proporção controlada (`max-width: 600px` centrada) para não distorcer nem desconectar o layout.
+  - *Desafio de Responsividade:* Em telas móveis (360px a 430px), o fio desce pelo centro enquanto o conteúdo se alinha de forma compacta e empilhada. Em telas médias e desktops amplos (768px a 2560px), o fio escala de forma fluida (`clamp(150px, 18vw, 360px)`) posicionado na costura central entre as duas colunas do grid, mantendo a proporção natural da imagem sem distorcer nem estrangular o layout.
   - *Regra CLAUDE.md:* O elemento contínuo **NÃO** receberá animações de scroll contínuo pesado, nem `transform`/`filter` nos contêineres ancestrais, garantindo 60fps constantes e compatibilidade total.
 
 ### 2.2. Bordas Rasgadas de Papel (*Torn Paper Edges*)
 - **Descrição:** Transições entre seções com aspecto de papel rasgado à mão, exibindo fibras e desníveis orgânicos.
-- **Viabilidade:** **TOTALMENTE VIÁVEL**. Implementado com divisores `<svg>` inline de alta fidelidade com `preserveAspectRatio="none"` ou `mask-image` com máscara SVG. Leve, sem impacto em tempo de carregamento.
+- **Viabilidade:** **TOTALMENTE VIÁVEL**. Implementado com divisores `<svg>` inline de alta fidelidade com `preserveAspectRatio="none"` ou `mask-image` com máscara SVG. Leve, sem impacto em tempo de carregamento. O rodapé inferior rasgado estende-se 100% full-bleed de ponta a ponta da tela.
 
 ### 2.3. Estética Scrapbook (Selos de Cera, Fitas Adesivas, Adesivos Smile e Carimbos)
 - **Descrição:** Selos de cera vermelhos com relevo, tiras de fita crepe (*washi tape*) translúcida fosca, carimbo circular de fermentação 48h e adesivos smile amarelos.
@@ -45,6 +45,12 @@ O mockup em `design/mockup-full.png` é uma peça gráfica conceitual de altíss
 ### 2.4. Anotações Manuscritas (*Handwritten Scribbles & Arrows*)
 - **Descrição:** Textos editoriais explicativos que parecem rabiscados à mão com caneta/lápis (ex: *"editorial paper"*, *"Wood-fired"*, setinhas pontilhadas e corações).
 - **Viabilidade:** **TOTALMENTE VIÁVEL** em HTML real utilizando uma fonte do Google Fonts especializada (`Caveat`) combinada com setas desenhadas em SVG inline responsivo.
+
+### 2.5. Arquitetura de Layout: Full-Bleed e Escala Proporcional
+- **REGRA DE OURO:** *A largura do mockup NUNCA vira um max-width fixo do site inteiro — ela é só a proporção de referência, extrapolada para a largura real de cada tela.*
+- **Fundos Full-Bleed:** Cada seção decide seu próprio fundo, indo de borda a borda da viewport (100% width), sem margens artificiais, molduras cinzas ou fundos pontilhados nas laterais.
+- **Escalação de Conteúdo:** O conteúdo é acomodado em contêineres fluidos (`--container-max-w: clamp(1180px, 90vw, 2200px)`), permitindo que telas de 1440px, 1920px e 2560px aproveitem o espaço com elegância, equilíbrio e imponência visual.
+- **Largura de Leitura Confortável:** Parágrafos e blocos textuais mantêm medidas tipográficas ideais (`max-width: 70-90ch`), enquanto títulos editoriais, fotos polaroid, massas e o fio de queijo crescem proporcionalmente à largura da tela.
 
 ---
 

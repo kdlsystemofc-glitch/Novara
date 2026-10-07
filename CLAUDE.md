@@ -24,6 +24,7 @@ REGRA DE OURO — o que é real e o que é gerado:
 
 - Cores, fontes, espaçamentos: só via variáveis CSS do DESIGN.md.
 - Mobile-first, unidades fluidas (clamp), sem largura fixa em px.
+- A largura do mockup NUNCA vira um max-width fixo do site inteiro — ela é só a proporção de referência, extrapolada para a largura real de cada tela (full-bleed seção por seção, fundos de borda a borda, conteúdo escalando proporcionalmente).
 - Proibido: fonte Inter/Roboto/Arial, sombras padrão, cards genéricos,
   gradiente roxo genérico. Se o mockup mostra outra coisa, seguir o
   mockup.

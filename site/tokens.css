@@ -30,26 +30,27 @@
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-hand: 'Caveat', cursive;
 
-  /* Escala Tipográfica Fluida (clamp) */
-  --text-hero: clamp(2.8rem, 8vw, 6.5rem);       /* Título gigante NOVARA */
-  --text-h1: clamp(2.0rem, 5vw, 4.2rem);         /* Títulos editoriais de seção */
-  --text-h2: clamp(1.4rem, 3.2vw, 2.5rem);
-  --text-h3: clamp(1.1rem, 2vw, 1.6rem);
-  --text-body: clamp(0.95rem, 1.2vw, 1.15rem);
-  --text-sm: clamp(0.75rem, 1vw, 0.9rem);
-  --text-badge: clamp(0.65rem, 0.85vw, 0.8rem);
-  --text-hand: clamp(1.05rem, 1.6vw, 1.5rem);
+  /* Escala Tipográfica Fluida (clamp) — Extrapolada para Viewports Amplos */
+  --text-hero: clamp(3.4rem, 11vw, 11.5rem);      /* Título monumental NOVARA */
+  --text-h1: clamp(2.2rem, 5.5vw, 5.2rem);        /* Títulos editoriais de seção */
+  --text-h2: clamp(1.6rem, 3.8vw, 3.6rem);
+  --text-h3: clamp(1.2rem, 2.4vw, 2.2rem);
+  --text-body: clamp(0.95rem, 1.25vw, 1.25rem);
+  --text-sm: clamp(0.75rem, 1vw, 1.05rem);
+  --text-badge: clamp(0.65rem, 0.85vw, 0.95rem);
+  --text-hand: clamp(1.05rem, 1.6vw, 1.85rem);
 
   /* Espaçamentos Fluidos (clamp) */
-  --space-2xs: clamp(0.25rem, 0.5vw, 0.375rem);
-  --space-xs: clamp(0.5rem, 1vw, 0.75rem);
-  --space-sm: clamp(0.75rem, 1.5vw, 1.25rem);
-  --space-md: clamp(1.25rem, 2.5vw, 2rem);
-  --space-lg: clamp(2rem, 4vw, 3.5rem);
-  --space-xl: clamp(3rem, 6vw, 5.5rem);
+  --space-2xs: clamp(0.25rem, 0.6vw, 0.5rem);
+  --space-xs: clamp(0.5rem, 1.2vw, 1.1rem);
+  --space-sm: clamp(0.85rem, 2vw, 1.85rem);
+  --space-md: clamp(1.5rem, 3.5vw, 3.5rem);
+  --space-lg: clamp(2.5rem, 5vw, 5.5rem);
+  --space-xl: clamp(3.5rem, 7vw, 8rem);
 
-  /* Largura Máxima Controlada (Coluna Editorial Central do Mockup) */
-  --container-max-w: 680px;
+  /* Layout Fluido & Responsivo (Full-Bleed com Containers Proporcionais) */
+  --container-max-w: clamp(1180px, 90vw, 2200px);
+  --text-measure: 75ch;
 
   /* Sombras e Elevações Físicas */
   --shadow-paper: 0 4px 20px rgba(20, 20, 20, 0.06);

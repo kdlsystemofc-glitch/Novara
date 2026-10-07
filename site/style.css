@@ -3,56 +3,51 @@
    Design Editorial Italiano com Scrapbook & Micro-Interações
    ========================================================================== */
 
-/* Layout Base */
-.page-wrapper {
+/* Layout Base Full-Bleed */
+.site-main {
   position: relative;
   width: 100%;
   min-height: 100vh;
   background-color: var(--color-paper);
-  background-image: radial-gradient(rgba(20, 20, 20, 0.03) 1px, transparent 0);
-  background-size: 24px 24px;
-  overflow-x: hidden;
+  overflow-x: clip;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
-/* Contêiner Editorial Central (Fidelidade ao Canvas do Mockup) */
-.editorial-canvas {
+/* Contêiner Editorial Fluido por Seção */
+.editorial-container {
   position: relative;
   width: 100%;
   max-width: var(--container-max-w);
-  margin: 0 auto;
-  background-color: var(--color-paper);
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.06);
-  display: flex;
-  flex-direction: column;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 4.5rem);
 }
 
-/* Fio de Queijo Contínuo (Cheese Ribbon) */
+/* Seções Editoriais (Full-Bleed de Borda a Borda) */
+.editorial-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-paper);
+  padding-block: var(--space-md);
+  z-index: 2;
+}
+
+/* Fio de Queijo Contínuo da Assinatura (Cheese Ribbon) */
 .cheese-pull-spine {
   position: absolute;
-  top: 75px;
+  top: clamp(80px, 9vw, 150px);
   left: 50%;
-  transform: translateX(-48%);
-  width: clamp(140px, 32vw, 240px);
+  transform: translateX(-50%);
+  width: clamp(150px, 18vw, 360px);
   z-index: 10;
   pointer-events: none;
-  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.16));
 }
 
 .cheese-pull-spine img {
   width: 100%;
   height: auto;
   display: block;
-}
-
-/* Seções Editoriais */
-.editorial-section {
-  position: relative;
-  width: 100%;
-  padding: var(--space-md) var(--space-sm);
-  z-index: 2;
 }
 
 /* ==========================================================================
@@ -172,9 +167,9 @@
 
 .brand-hero-title {
   font-family: var(--font-display);
-  font-size: clamp(3.6rem, 13.5vw, 7.8rem);
+  font-size: var(--text-hero);
   font-weight: 900;
-  letter-spacing: 0.02em;
+  letter-spacing: clamp(0.01em, 0.15vw, 0.04em);
   line-height: 0.86;
   color: var(--color-ink);
   text-transform: uppercase;
@@ -230,7 +225,7 @@
 
 .sub-crust {
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 3.2vw, 2.5rem);
+  font-size: clamp(1.4rem, 3.2vw, 2.8rem);
   font-weight: 700;
   color: var(--color-ink);
   letter-spacing: 0.02em;
@@ -238,7 +233,7 @@
 
 .main-crust {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 4.2vw, 3.2rem);
+  font-size: clamp(1.8rem, 4.4vw, 3.8rem);
   font-weight: 900;
   color: var(--color-ink);
   letter-spacing: -0.02em;
@@ -247,15 +242,17 @@
 /* Card Massa Crua */
 .dough-card {
   position: relative;
-  border-radius: 4px;
+  border-radius: 6px;
   overflow: visible;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+  max-width: clamp(320px, 42vw, 680px);
+  margin-left: auto;
 }
 
 .img-dough {
   width: 100%;
   height: auto;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .postit-dough {
@@ -319,7 +316,7 @@
   position: relative;
   display: inline-block;
   width: 100%;
-  max-width: 280px;
+  max-width: clamp(280px, 36vw, 560px);
   transform: rotate(-3deg);
   transition: transform var(--transition-fast);
 }
@@ -331,10 +328,10 @@
   background-color: var(--color-tag-green);
   color: #FFFFFF;
   font-family: var(--font-sans);
-  font-size: clamp(0.55rem, 0.7vw, 0.68rem);
+  font-size: clamp(0.6rem, 0.8vw, 0.85rem);
   font-weight: 800;
   letter-spacing: 0.08em;
-  padding: 4px 10px;
+  padding: clamp(4px, 0.5vw, 8px) clamp(8px, 1vw, 16px);
   border-radius: 2px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   z-index: 10;
@@ -377,7 +374,7 @@
 
 .line-materia {
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 3.2vw, 2.5rem);
+  font-size: clamp(1.6rem, 3.8vw, 4.2rem);
   font-weight: 900;
   letter-spacing: -0.01em;
   color: var(--color-ink);
@@ -386,7 +383,7 @@
 
 .line-pura {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 4.5vw, 3.5rem);
+  font-size: clamp(2.4rem, 5.5vw, 6rem);
   font-weight: 900;
   letter-spacing: -0.02em;
   color: var(--color-ink);
@@ -403,10 +400,10 @@
   color: #FFFFFF;
   font-family: var(--font-sans);
   font-weight: 800;
-  font-size: clamp(0.52rem, 0.7vw, 0.68rem);
+  font-size: clamp(0.62rem, 0.8vw, 0.95rem);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 3px 7px;
+  padding: clamp(4px, 0.5vw, 8px) clamp(8px, 1vw, 16px);
   border-radius: 3px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   transform: rotate(3deg);
@@ -416,10 +413,10 @@
 /* Selo com Retalho Verde no Canto Direito */
 .seal-green-scrap-wrap {
   position: absolute;
-  right: -10px;
-  bottom: -35px;
-  width: 90px;
-  height: 90px;
+  right: 0;
+  bottom: -30px;
+  width: clamp(80px, 8vw, 130px);
+  height: clamp(80px, 8vw, 130px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -427,8 +424,8 @@
 
 .paper-green-scrap {
   position: absolute;
-  width: 65px;
-  height: 65px;
+  width: clamp(65px, 6.5vw, 105px);
+  height: clamp(65px, 6.5vw, 105px);
   background-color: var(--color-brand-green);
   clip-path: polygon(0% 15%, 85% 0%, 100% 85%, 20% 100%, 5% 75%);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -462,12 +459,14 @@
 
 .oven-card-wrap {
   position: relative;
-  border-radius: 4px;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-width: clamp(320px, 42vw, 680px);
+  width: 100%;
 }
 
 .oven-card {
-  border-radius: 4px;
+  border-radius: 6px;
   overflow: hidden;
 }
 
@@ -482,7 +481,7 @@
   bottom: -8px;
   left: 0;
   width: 100%;
-  height: 14px;
+  height: clamp(14px, 1.6vw, 24px);
   background-color: var(--color-paper);
   clip-path: polygon(0% 100%, 5% 20%, 12% 80%, 20% 10%, 28% 70%, 36% 25%, 45% 85%, 55% 15%, 64% 75%, 72% 20%, 80% 80%, 88% 30%, 95% 70%, 100% 100%);
 }
@@ -506,7 +505,7 @@
 
 .line-forno {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: clamp(2.4rem, 5.6vw, 5.6rem);
   font-weight: 900;
   letter-spacing: -0.01em;
   color: var(--color-ink);
@@ -514,7 +513,7 @@
 
 .line-tempo {
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 6vw, 4.6rem);
+  font-size: clamp(3rem, 7vw, 7.2rem);
   font-weight: 900;
   letter-spacing: -0.02em;
   color: var(--color-ink);
@@ -530,6 +529,8 @@
 
 .doodle-heart-arrow {
   display: block;
+  width: clamp(80px, 8vw, 130px);
+  height: auto;
 }
 
 .note-oven {
@@ -569,7 +570,7 @@
 
 .line-table {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 4.4vw, 3.4rem);
+  font-size: clamp(2.2rem, 5.2vw, 5.2rem);
   font-weight: 900;
   letter-spacing: -0.01em;
   color: var(--color-ink);
@@ -577,7 +578,7 @@
 
 .line-reservations {
   font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3.8vw, 3rem);
+  font-size: clamp(2rem, 4.6vw, 4.6rem);
   font-weight: 900;
   letter-spacing: -0.02em;
   color: var(--color-ink);
@@ -591,7 +592,7 @@
 }
 
 .note-service {
-  font-size: clamp(0.85rem, 1.1vw, 1.1rem);
+  font-size: clamp(0.9rem, 1.2vw, 1.25rem);
   color: var(--color-ink-muted);
 }
 
@@ -626,8 +627,8 @@
 }
 
 .img-buzzer-3d {
-  width: clamp(52px, 8vw, 68px);
-  height: clamp(52px, 8vw, 68px);
+  width: clamp(56px, 5.5vw, 86px);
+  height: clamp(56px, 5.5vw, 86px);
   display: block;
 }
 
@@ -641,8 +642,9 @@
 
 .wine-napkin-card {
   width: 100%;
-  max-width: 320px;
+  max-width: clamp(300px, 38vw, 620px);
   transform: rotate(-2deg);
+  margin-left: auto;
 }
 
 .img-wine-napkin {
@@ -657,8 +659,8 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 12px;
-  margin-top: var(--space-md);
+  gap: 16px;
+  margin-top: var(--space-lg);
   margin-bottom: var(--space-lg);
   position: relative;
   z-index: 15;
@@ -673,11 +675,11 @@
   color: #FFFFFF;
   font-family: var(--font-sans);
   font-weight: 800;
-  font-size: clamp(0.85rem, 1.2vw, 1.15rem);
+  font-size: clamp(0.95rem, 1.3vw, 1.35rem);
   letter-spacing: 0.05em;
-  padding: 14px 32px;
+  padding: clamp(14px, 1.4vw, 22px) clamp(30px, 3.5vw, 64px);
   border-radius: 9999px;
-  box-shadow: 0 6px 18px rgba(154, 30, 26, 0.4);
+  box-shadow: 0 6px 20px rgba(154, 30, 26, 0.4);
   transition: background-color var(--transition-fast), transform var(--transition-fast);
   text-transform: uppercase;
 }
@@ -685,45 +687,53 @@
 .btn-cta-pill:hover {
   background-color: var(--color-brand-red-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(154, 30, 26, 0.5);
+  box-shadow: 0 8px 24px rgba(154, 30, 26, 0.5);
 }
 
 .delivery-meta-info {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
   font-family: var(--font-sans);
-  font-size: clamp(0.72rem, 0.9vw, 0.85rem);
+  font-size: clamp(0.75rem, 0.95vw, 0.95rem);
   color: var(--color-ink-muted);
   font-weight: 600;
 }
 
-/* Rasgo de Papel no Rodapé */
+/* Rasgo de Papel no Rodapé (Full-Bleed 100%) */
 .torn-footer-edge {
   width: 100%;
-  height: 28px;
+  height: clamp(28px, 3.5vw, 56px);
   background-color: var(--color-paper-dark);
   clip-path: polygon(0% 100%, 0% 40%, 6% 10%, 14% 50%, 22% 15%, 30% 60%, 38% 20%, 46% 70%, 54% 15%, 62% 65%, 70% 25%, 78% 75%, 86% 20%, 94% 60%, 100% 30%, 100% 100%);
-  margin-top: var(--space-md);
+  margin-top: var(--space-xl);
 }
 
-
-
-
-
-
-/* Grid Editorial de Duas Colunas (Esquerda / Direita) */
+/* Grid Editorial Responsivo de Duas Colunas */
 .editorial-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-md);
+  gap: clamp(1.5rem, 4.5vw, 5rem);
   align-items: center;
   position: relative;
 }
 
-@media (max-width: 480px) {
-  .editorial-section {
-    padding: var(--space-sm) var(--space-xs);
+@media (max-width: 720px) {
+  .editorial-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .dough-card,
+  .wine-napkin-card,
+  .polaroid-wrapper,
+  .oven-card-wrap {
+    margin-inline: auto;
+  }
+
+  .ingredients-right-col,
+  .oven-right-col {
+    padding-left: 0;
   }
 }
 
