@@ -326,11 +326,13 @@
         loadNext(0);
       }
 
-      if (document.readyState === 'complete') {
-        setTimeout(loadMotionScripts, 50);
+      if ('requestIdleCallback' in window) {
+        window.addEventListener('load', function() {
+          requestIdleCallback(loadMotionScripts, { timeout: 1200 });
+        });
       } else {
         window.addEventListener('load', function() {
-          setTimeout(loadMotionScripts, 50);
+          setTimeout(loadMotionScripts, 800);
         });
       }
 

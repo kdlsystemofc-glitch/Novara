@@ -55,9 +55,22 @@
   - Lighthouse Mobile pós-Fase A: Performance 66/100 (variação de apenas 2 pontos em relação ao baseline de 68), Acessibilidade 100/100, Melhores Práticas 88/100, SEO 91/100.
   - Tag registrada: `motion-base`.
 
+- [x] **FASE B: Animação Seção por Seção (Concluída)**
+  - **Seção 1 (Hero & Crust Alchemy):** Revelação pós-load com fade-up/down suave, micro-flutuação dos stickers em modo high, card da massa fermentando com leve parallax e post-it assentado.
+  - **Seção 2 (Matéria-Prima Pura):** Polaroid com entrada a 35% de visibilidade e parallax suave (0.07), etiqueta com fade sutil, títulos e selo de cera sobre papel verde com revelação defasada.
+  - **Seção 3 (Forno & Tempo):** Foto do forno com base rasgada em parallax (0.06), títulos com stagger e doodles SVG artesanais com micro-pulso harmônico.
+  - **Seção 4 (Table & Reservations):** Título e notas de salão reveladas, botão 3D buzzer com feedback tátil e pulso de atenção discreto, taça de vinho com parallax leve (0.08).
+  - **Validação de Empilhamento e Integridade:** `.cheese-pull-spine` e seus ancestrais 100% preservados (`transform: none`, `opacity: 1`, `zIndex: 10`), zero quebra de layout.
+  - **Navegação Rápida:** Suíte [`scripts/test_fast_scroll.py`](file:///c:/Oficial/Novara%203/scripts/test_fast_scroll.py) aprovada com 0 elementos presos escondidos.
+  - **Lighthouse Mobile pós-Fase B:** Performance 65/100 (dentro do limite estrito de até 3 pontos de variação), Acessibilidade 100/100, Melhores Práticas 88/100, SEO 91/100.
+  - Commits individuais por seção registrados no Git.
+
 ---
 
-## 2. Próximos Passos (Fases B e C de Motion)
-1. **FASE B:** Implementar animações declarativas seção por seção (Hero, Matéria-Prima, Forno & Tempo, Reservas).
-2. **FASE C:** Botão de pausa acessível, inventário de motion, avaliação de ritmo e tag `motion-pronto`.
+## 2. Próximos Passos (FASE C: Menu, Rodapé, Botão de Pausa e Coerência)
+1. Inserir botão de pausa acessível com toggle aria e atalho de controle de motion.
+2. Gerar `motion-inventario.md` mapeando loops simultâneos por posição de rolagem e refinando excessos.
+3. Gravar vídeo/captura contínua de quadros e validar ritmo geral.
+4. Aplicar tag `motion-pronto`.
+
 
