@@ -128,74 +128,79 @@
     setupReveals() {
       if (!window.gsap || !window.ScrollTrigger) return;
 
-      const revealElements = document.querySelectorAll('[data-reveal]');
-      revealElements.forEach((el) => {
-        // Garantir que não toque na spine contínua
-        if (el.closest('.cheese-pull-spine')) return;
+      const sections = document.querySelectorAll('.editorial-section');
+      sections.forEach((section) => {
+        const revealElements = section.querySelectorAll('[data-reveal]');
+        if (!revealElements.length) return;
 
-        const type = el.getAttribute('data-reveal') || 'fade-up';
-        const delay = parseFloat(el.getAttribute('data-reveal-delay')) || 0;
-        const duration = parseFloat(el.getAttribute('data-reveal-duration')) || (this.mode === 'reduced' ? 0.2 : 0.7);
+        // Verificar se seção já está na dobra inicial (hero)
+        const rect = section.getBoundingClientRect();
+        const isAboveFold = rect.top < window.innerHeight * 0.7;
 
-        // Se o elemento já está na dobra inicial (hero), não esconder antes
-        const rect = el.getBoundingClientRect();
-        const isAboveFold = rect.top < window.innerHeight * 0.85;
+        revealElements.forEach((el) => {
+          // Proteção absoluta da spine central
+          if (el.closest('.cheese-pull-spine')) return;
 
-        if (this.mode === 'reduced') {
-          // Em reduced motion: apenas fade suave sem translação
+          const type = el.getAttribute('data-reveal') || 'fade-up';
+          const delay = parseFloat(el.getAttribute('data-reveal-delay')) || 0;
+          const duration = parseFloat(el.getAttribute('data-reveal-duration')) || (this.mode === 'reduced' ? 0.2 : 0.75);
+
+          if (this.mode === 'reduced') {
+            // Em reduced motion: apenas fade suave sem translação
+            if (!isAboveFold) {
+              window.gsap.fromTo(el,
+                { opacity: 0 },
+                {
+                  opacity: 1,
+                  duration: 0.2,
+                  delay: delay,
+                  scrollTrigger: {
+                    trigger: section,
+                    start: 'top 75%',
+                    once: true
+                  }
+                }
+              );
+            }
+            return;
+          }
+
+          // Modo Full: translateY + fade suave com stagger (600-900ms a 35% de visibilidade)
+          let yOffset = 24;
+          if (type === 'fade-down') yOffset = -24;
+          else if (type === 'fade') yOffset = 0;
+
           if (!isAboveFold) {
-            window.gsap.fromTo(el, 
-              { opacity: 0 },
+            const tween = window.gsap.fromTo(el,
+              { opacity: 0, y: yOffset },
               {
                 opacity: 1,
-                duration: 0.2,
+                y: 0,
+                duration: duration,
                 delay: delay,
+                ease: 'power2.out',
                 scrollTrigger: {
-                  trigger: el,
-                  start: 'top 85%',
-                  toggleActions: 'play none none none'
+                  trigger: section,
+                  start: 'top 75%',
+                  once: true
                 }
               }
             );
-          }
-          return;
-        }
-
-        // Modo Full: translateY + fade suave com stagger
-        let yOffset = 24;
-        if (type === 'fade-down') yOffset = -24;
-        else if (type === 'fade') yOffset = 0;
-
-        if (!isAboveFold) {
-          const tween = window.gsap.fromTo(el,
-            { opacity: 0, y: yOffset },
-            {
-              opacity: 1,
-              y: 0,
-              duration: duration,
-              delay: delay,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: el,
-                start: 'top 85%',
-                toggleActions: 'play none none none'
+            this.reveals.push(tween);
+          } else {
+            // No hero inicial: transição suave pós-load sem bloquear leitura
+            window.gsap.fromTo(el,
+              { opacity: 0.85, y: Math.min(yOffset, 12) },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                delay: delay + 0.1,
+                ease: 'power2.out'
               }
-            }
-          );
-          this.reveals.push(tween);
-        } else {
-          // No hero inicial: transição sutil pós-load sem bloquear leitura
-          window.gsap.fromTo(el,
-            { opacity: 0.85, y: Math.min(yOffset, 12) },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.6,
-              delay: delay + 0.1,
-              ease: 'power2.out'
-            }
-          );
-        }
+            );
+          }
+        });
       });
     },
 
@@ -214,8 +219,8 @@
         if (el.closest('.cheese-pull-spine')) return;
 
         const factor = parseFloat(el.getAttribute('data-parallax')) || 0.08;
-        // Limite máximo de translação para não colidir com textos
-        const maxOffset = Math.min(24, Math.max(10, Math.abs(factor * 120)));
+        // Limite máximo de translação (0.05-0.10, máx ~24px, nunca sobre texto)
+        const maxOffset = Math.min(24, Math.max(8, Math.abs(factor * 120)));
         const direction = factor > 0 ? -maxOffset : maxOffset;
 
         const tween = window.gsap.fromTo(el,
@@ -253,15 +258,14 @@
         let tween;
 
         if (loopType === 'float') {
-          // Flutuação milimétrica (1.5px a 3px), ritmo calmo (3 a 4 segundos)
+          // Flutuação milimétrica (1.5px a 2.5px), ritmo calmo (3.2 segundos)
           tween = window.gsap.to(el, {
-            y: '+=3',
-            rotation: '+=0.8',
+            y: '+=2.5',
+            rotation: '+=0.6',
             duration: 3.2,
             repeat: -1,
             yoyo: true,
-            ease: 'sine.inOut',
-            paused: true
+            ease: 'sine.inOut'
           });
         } else if (loopType === 'pulse-subtle') {
           // Pulso calmo de escala (1.00 para 1.025)
@@ -270,8 +274,7 @@
             duration: 2.8,
             repeat: -1,
             yoyo: true,
-            ease: 'sine.inOut',
-            paused: true
+            ease: 'sine.inOut'
           });
         }
 
