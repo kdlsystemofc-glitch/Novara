@@ -23,7 +23,7 @@ def run_tests():
     results = []
 
     with sync_playwright() as p:
-        browser = p.chromium.launch()
+        browser = p.chromium.launch(args=["--allow-file-access-from-files"])
         for name, w, h in VIEWPORTS:
             errors = []
             page = browser.new_page(viewport={'width': w, 'height': h})

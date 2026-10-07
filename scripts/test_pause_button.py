@@ -11,6 +11,7 @@ def test_pause_button():
         page = browser.new_page(viewport={"width": 1440, "height": 900})
 
         page.goto(file_url, wait_until="networkidle")
+        page.evaluate("() => { if (window.__loadMotionNow) window.__loadMotionNow(); }")
         page.wait_for_timeout(600)
 
         btn = page.locator("#motion-toggle-btn")

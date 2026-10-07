@@ -8,10 +8,11 @@ def test_fast_scroll():
     print(f"Testing fast scroll on: {file_url}")
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        browser = p.chromium.launch(headless=True, args=["--allow-file-access-from-files"])
         page = browser.new_page(viewport={"width": 1440, "height": 900})
 
         page.goto(file_url, wait_until="networkidle")
+        page.evaluate("() => { if (window.__loadMotionNow) window.__loadMotionNow(); }")
         page.wait_for_timeout(600)
 
         # 1. Rolagem rápida para o fundo

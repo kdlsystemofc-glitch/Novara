@@ -8,7 +8,7 @@ def test_section(section_id, screenshot_name):
     print(f"Testing section {section_id} on: {file_url}")
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        browser = p.chromium.launch(headless=True, args=["--allow-file-access-from-files"])
         page = browser.new_page(viewport={"width": 1440, "height": 900})
 
         console_errors = []
@@ -16,6 +16,7 @@ def test_section(section_id, screenshot_name):
         page.on("pageerror", lambda err: console_errors.append(str(err)))
 
         page.goto(file_url, wait_until="networkidle")
+        page.evaluate("() => { if (window.__loadMotionNow) window.__loadMotionNow(); }")
 
         # 1. Checar estado imediato (above fold não bloqueado)
         sec = page.locator(f"#{section_id}")
@@ -74,6 +75,15 @@ def test_section(section_id, screenshot_name):
         print(f"Seção {section_id} validada com sucesso!")
 
 if __name__ == "__main__":
-    sec_id = sys.argv[1] if len(sys.argv) > 1 else "hero-crust-alchemy"
-    shot_name = sys.argv[2] if len(sys.argv) > 2 else "phase_b_hero.png"
-    test_section(sec_id, shot_name)
+    if len(sys.argv) > 2:
+        test_section(sys.argv[1], sys.argv[2])
+    else:
+        sections = [
+            ("hero-crust-alchemy", "phase_b_hero.png"),
+            ("materia-prima-pura", "phase_b_ingredients.png"),
+            ("forno-e-tempo", "phase_b_oven.png"),
+            ("table-reservations", "phase_b_reservations.png")
+        ]
+        for sec_id, shot_name in sections:
+            test_section(sec_id, shot_name)
+

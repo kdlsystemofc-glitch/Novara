@@ -18,8 +18,9 @@ def test_motion_base():
 
         page.goto(file_url, wait_until="networkidle")
 
-        # Aguardar um momento para os scripts carregarem após load
-        page.wait_for_timeout(500)
+        # Disparar carregamento imediato de motion para ambiente de teste
+        page.evaluate("() => { if (window.__loadMotionNow) window.__loadMotionNow(); }")
+        page.wait_for_timeout(600)
 
         # 1. Verificar se NovaraMotion, gsap, ScrollTrigger, Lenis existem
         motion_status = page.evaluate("""() => {

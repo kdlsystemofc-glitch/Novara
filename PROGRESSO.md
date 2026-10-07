@@ -80,12 +80,33 @@
   - Micro-interações táteis de hover em todos os stickers com resposta elástica e rotação dinâmica.
   - Suíte [`scripts/test_hero_letters.py`](file:///c:/Oficial/Novara%203/scripts/test_hero_letters.py) aprovada e vídeo atualizado em [`screenshots/videos/novara_motion_walkthrough.webm`](file:///c:/Oficial/Novara%203/screenshots/videos/novara_motion_walkthrough.webm).
 
+- [x] **Etapa de Otimização de Performance (Concluída — Performance 91/100 Mobile):**
+  - **Baseline Inicial:** Registrado em [`otimizacao-baseline.md`](file:///c:/Oficial/Novara%203/otimizacao-baseline.md) (Performance 65, A11y 100, BP 88, SEO 91).
+  - **Fontes 100% Locais & Subsetting:** Remoção de requisições externas ao Google Fonts. Download dos pesos estritos em WOFF2 e subsetting inteligente com `fontTools` (apenas caracteres do idioma e símbolos do site), reduzindo o payload de fontes de 315 KB para 136 KB (economia de 178 KB). Preload exclusivo das fontes críticas da dobra.
+  - **CSS Crítico & Assíncrono:** Extração de CSS crítico inline (`critical.min.css`, 4.8 KB) no `<head>`. Consolidação e minificação dos arquivos em `style.min.css` (24.8 KB), carregado de forma assíncrona com `onload` e fallback `<noscript>`, eliminando 100% do bloqueio de renderização (FCP reduzido de 3.4s para 1.7s).
+  - **Engenharia de Imagens & LCP:** 
+    - Geração de variantes de 160px/320px para miniaturas (selos de cera e buzzer button 3D, reduzindo de 157 KB para 3.5–7.8 KB).
+    - Degraus intermediários de 400px e 600px para celulares e tablets em todas as fotos editoriais.
+    - Recompressão WebP com qualidade otimizada (Q68–Q78), economizando mais de 1.2 MB de payload.
+    - Mapeamento e identificação do verdadeiro candidato visual a LCP no mobile (`cheese-pull-spine`), com preload direto, `fetchpriority="high"` e `decoding="sync"`. LCP reduzido de 6.8s para 3.3s.
+  - **JavaScript Minificado & Scheduling:** Minificação de `motion.js` com Terser gerando `motion.min.js` (8.4 KB, redução de 54%). Execução deferida para momento ocioso (`requestIdleCallback`) ou primeira interação física, reduzindo Total Blocking Time (TBT) para 0 ms.
+  - **Acessibilidade & Boas Práticas:** Correção de WCAG 2.5.3 (Label in Name) no botão de pausa de motion, favicons locais SVG/ICO criados e `<meta name="description">` adicionada (SEO 100/100, BP 92/100).
+  - **Diretrizes de Cache em Produção:** Guia completo documentado em [`DEPLOY.md`](file:///c:/Oficial/Novara%203/DEPLOY.md).
+  - **Resultados Finais do Lighthouse Mobile:**
+    - **Performance: 91 / 100** (Meta ≥ 90-92 atingida)
+    - **Accessibility: 100 / 100**
+    - **Best Practices: 92 / 100**
+    - **SEO: 100 / 100**
+  - **Regressão Visual & Motion:** 100% dos testes Playwright aprovados (12 resoluções, hero letters, todas as 4 seções e navegação rápida).
+
 ---
 
 ## 2. Status Final da Implementação
 - **Layout Estático:** 100% responsivo aprovado (12 resoluções, sem contêiner fixo, full-bleed).
 - **Sistema de Motion:** Fases A, B e C concluídas com coreografia do Hero de alto impacto artesanal.
-- **Tag:** `motion-pronto`.
+- **Otimização:** Lighthouse Mobile 91/100, FCP 1.7s, LCP 3.3s, TBT 0ms, CLS 0.062, Speed Index 1.7s.
+- **Tags & Commits:** `motion-pronto` -> `otimizacao pronta`.
+
 
 
 
