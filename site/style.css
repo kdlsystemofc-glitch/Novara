@@ -1,9 +1,12 @@
 /* ==========================================================================
    ESTILOS PRINCIPAIS — NOVARA PIZZAS E ESFIHAS
    Design Editorial Italiano com Scrapbook & Micro-Interações
+   Fiel ao Modelo de Referência (design/mockup-full.png)
    ========================================================================== */
 
-/* Layout Base Full-Bleed */
+/* --------------------------------------------------------------------------
+   Layout Base Full-Bleed
+   -------------------------------------------------------------------------- */
 .site-main {
   position: relative;
   width: 100%;
@@ -14,34 +17,34 @@
   flex-direction: column;
 }
 
-/* Contêiner Editorial Fluido por Seção */
-.editorial-container {
-  position: relative;
+/* Contêiner de Cabeçalho Superior */
+.hero-header-wrap {
   width: 100%;
-  max-width: var(--container-max-w);
-  margin-inline: auto;
-  padding-inline: clamp(1rem, 4vw, 4.5rem);
+  padding-inline: clamp(1rem, 2.5vw, 3.5rem);
+  position: relative;
+  z-index: 12;
 }
 
-/* Seções Editoriais (Full-Bleed de Borda a Borda) */
+/* Seções Editoriais (Full-Bleed, ritmo vertical de revista editorial) */
 .editorial-section {
   position: relative;
   width: 100%;
   background-color: var(--color-paper);
-  padding-block: var(--space-md);
+  padding-block: clamp(0.75rem, 1.8vw, 2.2rem);
   z-index: 2;
+  overflow: visible;
 }
 
-/* Fio de Queijo Contínuo da Assinatura (Cheese Ribbon) */
+/* Fio de Queijo Contínuo da Assinatura (Spine Central que percorre as 4 seções) */
 .cheese-pull-spine {
   position: absolute;
-  top: clamp(80px, 9vw, 150px);
+  top: clamp(60px, 5.8vw, 100px);
   left: 50%;
   transform: translateX(-50%);
-  width: clamp(150px, 18vw, 360px);
+  width: clamp(300px, 42vw, 660px);
   z-index: 10;
   pointer-events: none;
-  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.16));
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.18));
 }
 
 .cheese-pull-spine img {
@@ -54,9 +57,9 @@
    SEÇÃO 1: HERO & CRUST ALCHEMY
    ========================================================================== */
 .sec-hero {
-  padding-top: var(--space-xs);
-  padding-bottom: var(--space-md);
-  min-height: 480px;
+  padding-top: var(--space-2xs);
+  padding-bottom: clamp(0.8rem, 1.6vw, 2rem);
+  overflow: visible;
 }
 
 /* Barra Superior */
@@ -65,7 +68,7 @@
   justify-content: space-between;
   align-items: flex-start;
   position: relative;
-  margin-bottom: var(--space-xs);
+  margin-bottom: 2px;
   padding: 0 4px;
 }
 
@@ -114,36 +117,36 @@
 
 .tag-category {
   font-family: var(--font-sans);
-  font-size: clamp(0.65rem, 0.8vw, 0.8rem);
+  font-size: clamp(0.65rem, 0.8vw, 0.82rem);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   color: var(--color-ink-muted);
 }
 
 .note-editorial {
-  font-size: clamp(0.95rem, 1.3vw, 1.2rem);
+  font-size: clamp(0.95rem, 1.3vw, 1.25rem);
   color: var(--color-ink-faint);
   transform: rotate(-3deg);
 }
 
 .hero-wax-container {
   position: relative;
-  width: 60px;
-  height: 60px;
+  width: 58px;
+  height: 58px;
   z-index: 12;
 }
 
 .hero-seal {
   top: 0;
   right: 0;
-  width: clamp(40px, 8vw, 54px);
-  height: clamp(40px, 8vw, 54px);
+  width: clamp(40px, 4.5vw, 54px);
+  height: clamp(40px, 4.5vw, 54px);
 }
 
 .stamp-fermentation {
   position: absolute;
-  top: 42px;
+  top: 40px;
   right: 0;
   font-family: var(--font-sans);
   font-size: 0.5rem;
@@ -160,19 +163,22 @@
 .brand-hero-title-wrap {
   text-align: center;
   position: relative;
-  margin-top: 2px;
-  margin-bottom: var(--space-xs);
+  margin-top: 0;
+  margin-bottom: var(--space-2xs);
   z-index: 8;
+  width: 100%;
 }
 
 .brand-hero-title {
   font-family: var(--font-display);
-  font-size: var(--text-hero);
+  font-size: clamp(4.4rem, 15.6vw, 16.5rem);
   font-weight: 900;
-  letter-spacing: clamp(0.01em, 0.15vw, 0.04em);
-  line-height: 0.86;
+  letter-spacing: clamp(0.02em, 0.25vw, 0.06em);
+  line-height: 0.84;
   color: var(--color-ink);
   text-transform: uppercase;
+  margin: 0;
+  padding: 0;
 }
 
 /* Camada de Adesivos Flutuantes */
@@ -185,18 +191,28 @@
 
 .sticker-basil-wrap {
   position: absolute;
-  top: -25px;
+  top: -24px;
   right: 22%;
   transform: rotate(20deg);
 }
 
 .sticker-smile-hero {
   top: -10px;
-  right: 4px;
+  right: clamp(10px, 3vw, 40px);
+}
+
+/* Grid do Hero */
+.hero-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.08fr;
+  width: 100%;
+  align-items: center;
 }
 
 /* Coluna Esquerda: Crust Alchemy & Tomate */
 .hero-left-col {
+  padding-left: clamp(1.5rem, 5vw, 7rem);
+  padding-right: clamp(0.75rem, 2vw, 2.5rem);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -211,21 +227,21 @@
 }
 
 .note-tomato {
-  font-size: clamp(0.72rem, 0.9vw, 0.85rem);
+  font-size: clamp(0.72rem, 0.9vw, 0.88rem);
   color: var(--color-ink-muted);
   line-height: 1.0;
-  max-width: 100px;
+  max-width: 115px;
 }
 
 .title-crust-alchemy {
   display: flex;
   flex-direction: column;
-  line-height: 0.92;
+  line-height: 0.90;
 }
 
 .sub-crust {
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 3.2vw, 2.8rem);
+  font-size: clamp(1.6rem, 3.4vw, 3.4rem);
   font-weight: 700;
   color: var(--color-ink);
   letter-spacing: 0.02em;
@@ -233,53 +249,68 @@
 
 .main-crust {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 4.4vw, 3.8rem);
+  font-size: clamp(2.3rem, 5vw, 4.8rem);
   font-weight: 900;
   color: var(--color-ink);
   letter-spacing: -0.02em;
 }
 
-/* Card Massa Crua */
+/* Coluna Direita: Massa Crua Sangrada à Borda Direita */
+.hero-right-col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+  z-index: 8;
+}
+
 .dough-card {
   position: relative;
-  border-radius: 6px;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 8px 0 0 8px;
   overflow: visible;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
-  max-width: clamp(320px, 42vw, 680px);
-  margin-left: auto;
+  box-shadow: -10px 14px 34px rgba(0, 0, 0, 0.16);
 }
 
 .img-dough {
   width: 100%;
   height: auto;
-  border-radius: 6px;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 8px 0 0 8px;
+  display: block;
 }
 
+/* Post-it no Canto Superior da Foto (estilo bloco adesivo de fermentação) */
 .postit-dough {
   position: absolute;
-  bottom: -10px;
-  right: 0;
+  top: clamp(16px, 2.5vw, 32px);
+  left: clamp(12px, 2vw, 30px);
+  right: auto;
+  bottom: auto;
   background-color: var(--color-postit-blue);
-  padding: 6px 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  padding: clamp(6px, 0.8vw, 10px) clamp(10px, 1.2vw, 16px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transform: rotate(-3deg);
   display: flex;
   flex-direction: column;
   gap: 1px;
   z-index: 15;
-  max-width: 88%;
+  max-width: 85%;
 }
 
 .postit-hours {
   font-family: var(--font-sans);
-  font-size: clamp(0.75rem, 1vw, 0.95rem);
+  font-size: clamp(0.85rem, 1.1vw, 1.15rem);
   font-weight: 800;
   color: var(--color-ink);
 }
 
 .postit-desc {
   font-family: var(--font-sans);
-  font-size: clamp(0.5rem, 0.65vw, 0.62rem);
+  font-size: clamp(0.55rem, 0.7vw, 0.72rem);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -289,7 +320,8 @@
 }
 
 .hand-note-dough {
-  margin-top: var(--space-xs);
+  margin-top: 6px;
+  padding-right: clamp(1.5rem, 4vw, 5rem);
   text-align: right;
 }
 
@@ -297,17 +329,23 @@
    SEÇÃO 2: MATÉRIA-PRIMA PURA
    ========================================================================== */
 .sec-ingredients {
-  padding-top: var(--space-md);
-  padding-bottom: var(--space-lg);
+  padding-top: clamp(0.75rem, 1.5vw, 1.8rem);
+  padding-bottom: clamp(0.75rem, 1.5vw, 1.8rem);
   overflow: visible;
 }
 
 .ingredients-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
   align-items: center;
 }
 
-/* Coluna Esquerda: Polaroid */
+/* Coluna Esquerda: Polaroid Sangrada à Borda Esquerda */
 .ingredients-left-col {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
   position: relative;
   z-index: 8;
 }
@@ -316,49 +354,61 @@
   position: relative;
   display: inline-block;
   width: 100%;
-  max-width: clamp(280px, 36vw, 560px);
-  transform: rotate(-3deg);
+  max-width: clamp(340px, 46vw, 660px);
+  transform: rotate(-2.5deg);
+  margin-left: 0;
   transition: transform var(--transition-fast);
 }
 
 .tape-tag-polaroid {
   position: absolute;
-  top: -12px;
-  right: 10px;
+  top: -10px;
+  right: clamp(14px, 2vw, 28px);
   background-color: var(--color-tag-green);
   color: #FFFFFF;
   font-family: var(--font-sans);
   font-size: clamp(0.6rem, 0.8vw, 0.85rem);
   font-weight: 800;
   letter-spacing: 0.08em;
-  padding: clamp(4px, 0.5vw, 8px) clamp(8px, 1vw, 16px);
+  padding: clamp(4px, 0.5vw, 7px) clamp(8px, 1vw, 15px);
   border-radius: 2px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   z-index: 10;
-  transform: rotate(4deg);
+  transform: rotate(3deg);
+}
+
+.polaroid-card {
+  background: #FFFFFF;
+  padding: clamp(8px, 1vw, 14px) clamp(8px, 1vw, 14px) clamp(24px, 2.8vw, 38px) clamp(8px, 1vw, 14px);
+  box-shadow: var(--shadow-polaroid);
+  position: relative;
+  border-radius: 0 6px 6px 0;
+  transition: transform var(--transition-fast);
 }
 
 .img-polaroid {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 16 / 11;
   object-fit: cover;
   border: 1px solid rgba(0, 0, 0, 0.04);
+  display: block;
 }
 
 .sticker-smile-polaroid {
   bottom: -10px;
-  left: -8px;
+  left: clamp(12px, 2vw, 24px);
   transform: rotate(-8deg);
 }
 
-/* Coluna Direita: Tipografia & Badges */
+/* Coluna Direita: Tipografia Condensada & Badges */
 .ingredients-right-col {
+  padding-left: clamp(3.5rem, 8vw, 10.5rem);
+  padding-right: clamp(1rem, 3vw, 5rem);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   position: relative;
   z-index: 8;
-  padding-left: var(--space-xs);
 }
 
 .washi-note-wrap {
@@ -368,30 +418,33 @@
 .title-materia-prima {
   display: flex;
   flex-direction: column;
-  line-height: 0.92;
+  line-height: 0.90;
   margin-bottom: var(--space-xs);
 }
 
 .line-materia {
-  font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3.8vw, 4.2rem);
-  font-weight: 900;
+  font-family: var(--font-condensed);
+  font-size: clamp(2.4rem, 5.5vw, 6rem);
+  font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--color-ink);
   white-space: nowrap;
 }
 
 .line-pura {
-  font-family: var(--font-display);
-  font-size: clamp(2.4rem, 5.5vw, 6rem);
-  font-weight: 900;
+  font-family: var(--font-condensed);
+  font-size: clamp(3.4rem, 7.8vw, 8.5rem);
+  font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--color-ink);
 }
 
-.no-compromise-wrap {
-  margin-bottom: var(--space-md);
-  max-width: 90%;
+.no-compromise-row {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 1.8vw, 24px);
+  margin-top: 2px;
+  position: relative;
 }
 
 .badge-no-compromise {
@@ -400,23 +453,21 @@
   color: #FFFFFF;
   font-family: var(--font-sans);
   font-weight: 800;
-  font-size: clamp(0.62rem, 0.8vw, 0.95rem);
+  font-size: clamp(0.65rem, 0.85vw, 0.95rem);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: clamp(4px, 0.5vw, 8px) clamp(8px, 1vw, 16px);
+  padding: clamp(5px, 0.6vw, 8px) clamp(10px, 1.2vw, 18px);
   border-radius: 3px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   transform: rotate(3deg);
   white-space: nowrap;
 }
 
-/* Selo com Retalho Verde no Canto Direito */
+/* Selo com Retalho Verde no Scrapbook */
 .seal-green-scrap-wrap {
-  position: absolute;
-  right: 0;
-  bottom: -30px;
-  width: clamp(80px, 8vw, 130px);
-  height: clamp(80px, 8vw, 130px);
+  position: relative;
+  width: clamp(65px, 6.5vw, 100px);
+  height: clamp(65px, 6.5vw, 100px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -424,8 +475,8 @@
 
 .paper-green-scrap {
   position: absolute;
-  width: clamp(65px, 6.5vw, 105px);
-  height: clamp(65px, 6.5vw, 105px);
+  width: clamp(52px, 5.2vw, 80px);
+  height: clamp(52px, 5.2vw, 80px);
   background-color: var(--color-brand-green);
   clip-path: polygon(0% 15%, 85% 0%, 100% 85%, 20% 100%, 5% 75%);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -442,38 +493,47 @@
    SEÇÃO 3: FORNO & TEMPO
    ========================================================================== */
 .sec-oven {
-  padding-top: var(--space-md);
-  padding-bottom: var(--space-lg);
+  padding-top: clamp(0.75rem, 1.5vw, 1.8rem);
+  padding-bottom: clamp(0.75rem, 1.5vw, 1.8rem);
   overflow: visible;
 }
 
 .oven-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  width: 100%;
   align-items: center;
 }
 
-/* Coluna Esquerda: Foto Forno */
+/* Coluna Esquerda: Foto Forno Sangrada com Moldura Branca */
 .oven-left-col {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
   position: relative;
   z-index: 8;
 }
 
 .oven-card-wrap {
   position: relative;
-  border-radius: 6px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  max-width: clamp(320px, 42vw, 680px);
   width: 100%;
+  max-width: clamp(360px, 48vw, 700px);
+  background: #FFFFFF;
+  padding: clamp(6px, 0.8vw, 12px) clamp(6px, 0.8vw, 12px) 0 0;
+  border-radius: 0 6px 0 0;
+  box-shadow: 10px 14px 34px rgba(0, 0, 0, 0.18);
 }
 
 .oven-card {
-  border-radius: 6px;
+  border-radius: 0 6px 0 0;
   overflow: hidden;
 }
 
 .img-oven {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9.5;
   object-fit: cover;
+  display: block;
 }
 
 .oven-torn-base {
@@ -481,31 +541,32 @@
   bottom: -8px;
   left: 0;
   width: 100%;
-  height: clamp(14px, 1.6vw, 24px);
+  height: clamp(16px, 2vw, 24px);
   background-color: var(--color-paper);
-  clip-path: polygon(0% 100%, 5% 20%, 12% 80%, 20% 10%, 28% 70%, 36% 25%, 45% 85%, 55% 15%, 64% 75%, 72% 20%, 80% 80%, 88% 30%, 95% 70%, 100% 100%);
+  clip-path: polygon(0% 100%, 4% 15%, 9% 75%, 15% 10%, 22% 80%, 29% 20%, 36% 85%, 44% 15%, 52% 75%, 60% 20%, 68% 85%, 76% 15%, 84% 75%, 92% 25%, 100% 90%, 100% 100%);
 }
 
 /* Coluna Direita: Título FORNO & TEMPO e Doodles */
 .oven-right-col {
+  padding-left: clamp(3.5rem, 8vw, 10.5rem);
+  padding-right: clamp(1rem, 3vw, 5rem);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   position: relative;
   z-index: 8;
-  padding-left: var(--space-xs);
 }
 
 .title-forno-tempo {
   display: flex;
   flex-direction: column;
-  line-height: 0.92;
+  line-height: 0.90;
   margin-bottom: var(--space-xs);
 }
 
 .line-forno {
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 5.6vw, 5.6rem);
+  font-size: clamp(2.4rem, 5.5vw, 5.6rem);
   font-weight: 900;
   letter-spacing: -0.01em;
   color: var(--color-ink);
@@ -529,7 +590,7 @@
 
 .doodle-heart-arrow {
   display: block;
-  width: clamp(80px, 8vw, 130px);
+  width: clamp(75px, 7.5vw, 120px);
   height: auto;
 }
 
@@ -542,18 +603,23 @@
    SEÇÃO 4: TABLE & RESERVATIONS (SALÃO & DELIVERY)
    ========================================================================== */
 .sec-reservations {
-  padding-top: var(--space-md);
+  padding-top: clamp(0.5rem, 1.2vw, 1.5rem);
   padding-bottom: 0;
   overflow: visible;
 }
 
 .reservations-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  width: 100%;
   align-items: center;
-  margin-bottom: var(--space-lg);
+  margin-bottom: clamp(1rem, 2vw, 2.5rem);
 }
 
-/* Coluna Esquerda: Título e Botão Campainha */
+/* Coluna Esquerda: Título, Buzzer 3D, Botão CTA e Informações */
 .reservations-left-col {
+  padding-left: clamp(1.5rem, 5vw, 7rem);
+  padding-right: clamp(1rem, 2.5vw, 2.5rem);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -564,8 +630,8 @@
 .title-reservations {
   display: flex;
   flex-direction: column;
-  line-height: 0.92;
-  margin-bottom: var(--space-xs);
+  line-height: 0.90;
+  margin-bottom: 2px;
 }
 
 .line-table {
@@ -584,38 +650,48 @@
   color: var(--color-ink);
 }
 
-.reservations-interactive-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 4px;
+.reservations-doodle-note {
+  margin-top: 2px;
+  margin-bottom: 6px;
 }
 
 .note-service {
-  font-size: clamp(0.9rem, 1.2vw, 1.25rem);
+  font-size: clamp(0.95rem, 1.3vw, 1.25rem);
   color: var(--color-ink-muted);
 }
 
-.buzzer-sticker-row {
+/* Grupo de Ação: Campainha 3D + Botão CTA em Pílula */
+.buzzer-action-group {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-top: 6px;
+  flex-wrap: wrap;
+  gap: clamp(12px, 1.8vw, 24px);
+  margin-top: clamp(6px, 1vw, 14px);
+  margin-bottom: clamp(8px, 1.2vw, 16px);
   position: relative;
 }
 
-.sticker-smile-table {
+.buzzer-sticker-wrap {
   position: relative;
-  top: auto;
-  left: auto;
-  transform: rotate(6deg);
+  display: inline-flex;
+  align-items: center;
+}
+
+.sticker-smile-table {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: clamp(32px, 3.5vw, 42px);
+  height: clamp(32px, 3.5vw, 42px);
+  transform: rotate(-8deg);
+  z-index: 12;
 }
 
 .buzzer-btn-link {
   display: inline-block;
   cursor: pointer;
   transition: transform var(--transition-fast);
-  filter: drop-shadow(0 6px 12px rgba(154, 30, 26, 0.35));
+  filter: drop-shadow(0 8px 18px rgba(154, 30, 26, 0.35));
 }
 
 .buzzer-btn-link:hover {
@@ -623,48 +699,13 @@
 }
 
 .buzzer-btn-link:active {
-  transform: scale(0.94);
+  transform: scale(0.93);
 }
 
 .img-buzzer-3d {
-  width: clamp(56px, 5.5vw, 86px);
-  height: clamp(56px, 5.5vw, 86px);
+  width: clamp(72px, 6.5vw, 96px);
+  height: clamp(72px, 6.5vw, 96px);
   display: block;
-}
-
-/* Coluna Direita: Vinho e Guardanapo */
-.reservations-right-col {
-  position: relative;
-  z-index: 8;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.wine-napkin-card {
-  width: 100%;
-  max-width: clamp(300px, 38vw, 620px);
-  transform: rotate(-2deg);
-  margin-left: auto;
-}
-
-.img-wine-napkin {
-  width: 100%;
-  height: auto;
-  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.12));
-}
-
-/* CTA Central Inferior */
-.cta-bottom-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 16px;
-  margin-top: var(--space-lg);
-  margin-bottom: var(--space-lg);
-  position: relative;
-  z-index: 15;
-  padding: 0 var(--space-sm);
 }
 
 .btn-cta-pill {
@@ -675,66 +716,64 @@
   color: #FFFFFF;
   font-family: var(--font-sans);
   font-weight: 800;
-  font-size: clamp(0.95rem, 1.3vw, 1.35rem);
-  letter-spacing: 0.05em;
-  padding: clamp(14px, 1.4vw, 22px) clamp(30px, 3.5vw, 64px);
+  font-size: clamp(0.82rem, 1.1vw, 1.15rem);
+  letter-spacing: 0.04em;
+  padding: clamp(12px, 1.2vw, 18px) clamp(20px, 2.4vw, 42px);
   border-radius: 9999px;
-  box-shadow: 0 6px 20px rgba(154, 30, 26, 0.4);
+  box-shadow: 0 6px 20px rgba(154, 30, 26, 0.35);
   transition: background-color var(--transition-fast), transform var(--transition-fast);
   text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 .btn-cta-pill:hover {
   background-color: var(--color-brand-red-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(154, 30, 26, 0.5);
+  box-shadow: 0 8px 24px rgba(154, 30, 26, 0.45);
 }
 
 .delivery-meta-info {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 3px;
   font-family: var(--font-sans);
   font-size: clamp(0.75rem, 0.95vw, 0.95rem);
   color: var(--color-ink-muted);
   font-weight: 600;
 }
 
+/* Coluna Direita: Vinho e Guardanapo Sangrado à Borda Direita */
+.reservations-right-col {
+  position: relative;
+  z-index: 8;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.wine-napkin-card {
+  width: 100%;
+  max-width: clamp(380px, 50vw, 760px);
+  transform: rotate(-2deg);
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.img-wine-napkin {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.14));
+}
+
 /* Rasgo de Papel no Rodapé (Full-Bleed 100%) */
 .torn-footer-edge {
   width: 100%;
-  height: clamp(28px, 3.5vw, 56px);
+  height: clamp(32px, 4vw, 60px);
   background-color: var(--color-paper-dark);
-  clip-path: polygon(0% 100%, 0% 40%, 6% 10%, 14% 50%, 22% 15%, 30% 60%, 38% 20%, 46% 70%, 54% 15%, 62% 65%, 70% 25%, 78% 75%, 86% 20%, 94% 60%, 100% 30%, 100% 100%);
-  margin-top: var(--space-xl);
-}
-
-/* Grid Editorial Responsivo de Duas Colunas */
-.editorial-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(1.5rem, 4.5vw, 5rem);
-  align-items: center;
-  position: relative;
-}
-
-@media (max-width: 720px) {
-  .editorial-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
-  }
-
-  .dough-card,
-  .wine-napkin-card,
-  .polaroid-wrapper,
-  .oven-card-wrap {
-    margin-inline: auto;
-  }
-
-  .ingredients-right-col,
-  .oven-right-col {
-    padding-left: 0;
-  }
+  clip-path: polygon(0% 100%, 0% 35%, 5% 10%, 12% 55%, 19% 15%, 26% 65%, 33% 20%, 41% 75%, 49% 15%, 57% 65%, 65% 25%, 73% 75%, 81% 20%, 89% 60%, 96% 25%, 100% 40%, 100% 100%);
+  margin-top: clamp(1rem, 2vw, 2.5rem);
 }
 
 /* ==========================================================================
@@ -759,8 +798,8 @@
 /* Selo de Cera Bordô */
 .wax-seal-badge {
   position: absolute;
-  width: clamp(48px, 10vw, 68px);
-  height: clamp(48px, 10vw, 68px);
+  width: clamp(48px, 6vw, 68px);
+  height: clamp(48px, 6vw, 68px);
   z-index: 15;
   filter: drop-shadow(0 4px 8px rgba(130, 34, 37, 0.4));
   cursor: pointer;
@@ -771,41 +810,10 @@
   transform: scale(1.05) rotate(4deg);
 }
 
-/* Selo / Badge "No Compromise" */
-.badge-no-compromise {
-  display: inline-block;
-  background-color: var(--color-tag-green);
-  color: #FFFFFF;
-  font-family: var(--font-sans);
-  font-weight: 800;
-  font-size: var(--text-badge);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 4px 12px;
-  border-radius: 4px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  transform: rotate(4deg);
-}
-
-/* Prancha Polaroid */
-.polaroid-card {
-  background: #FFFFFF;
-  padding: 8px 8px 18px 8px;
-  box-shadow: var(--shadow-polaroid);
-  position: relative;
-  transition: transform var(--transition-fast);
-}
-
-.polaroid-card img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-}
-
 /* Adesivos Smile e Ícones */
 .sticker-smile {
-  width: clamp(34px, 7vw, 44px);
-  height: clamp(34px, 7vw, 44px);
+  width: clamp(34px, 4vw, 44px);
+  height: clamp(34px, 4vw, 44px);
   background-color: var(--color-sticker-yellow);
   border-radius: 50%;
   border: 2px solid #FFFFFF;
@@ -823,14 +831,6 @@
   fill: var(--color-ink);
 }
 
-/* Adesivo Tomate */
-.sticker-tomato {
-  width: clamp(36px, 8vw, 48px);
-  position: absolute;
-  z-index: 12;
-  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.15));
-}
-
 /* Anotações Manuscritas */
 .hand-note {
   font-family: var(--font-hand);
@@ -839,55 +839,86 @@
   line-height: 1.1;
 }
 
-/* Botão Vermelho 3D Pulsador */
-.buzzer-btn {
-  width: clamp(44px, 8vw, 56px);
-  height: clamp(44px, 8vw, 56px);
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #FF4D4D, #9A1E1A 65%, #590B08);
-  box-shadow: 
-    0 8px 16px rgba(154, 30, 26, 0.45),
-    inset 0 2px 4px rgba(255, 255, 255, 0.6),
-    inset 0 -4px 6px rgba(0, 0, 0, 0.4);
-  cursor: pointer;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+/* ==========================================================================
+   RESPONSIVIDADE E BREAKPOINTS
+   ========================================================================== */
+
+/* Telas Médias / Tablets (≤ 1024px) */
+@media (max-width: 1024px) {
+  .hero-content-grid,
+  .ingredients-grid,
+  .oven-grid,
+  .reservations-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cheese-pull-spine {
+    width: clamp(260px, 34vw, 440px);
+  }
 }
 
-.buzzer-btn:active {
-  transform: scale(0.92) translateY(2px);
-  box-shadow: 0 3px 6px rgba(154, 30, 26, 0.4);
-}
+/* Telas Menores / Mobile (≤ 720px) */
+@media (max-width: 720px) {
+  .hero-content-grid,
+  .ingredients-grid,
+  .oven-grid,
+  .reservations-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
 
-/* Botão Principal em Pílula (CTA) */
-.btn-cta-pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-brand-red);
-  color: #FFFFFF;
-  font-family: var(--font-sans);
-  font-weight: 800;
-  font-size: var(--text-body);
-  letter-spacing: 0.04em;
-  padding: 12px 28px;
-  border-radius: 9999px;
-  box-shadow: 0 4px 14px rgba(154, 30, 26, 0.35);
-  transition: background-color var(--transition-fast), transform var(--transition-fast);
-  text-align: center;
-}
+  .hero-left-col,
+  .ingredients-right-col,
+  .oven-right-col,
+  .reservations-left-col {
+    padding-inline: clamp(1rem, 4vw, 2rem);
+  }
 
-.btn-cta-pill:hover {
-  background-color: var(--color-brand-red-hover);
-  transform: translateY(-2px);
-}
+  .hero-right-col,
+  .ingredients-left-col,
+  .oven-left-col,
+  .reservations-right-col {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-inline: clamp(0.75rem, 3vw, 1.5rem);
+  }
 
-/* Divisor de Papel Rasgado */
-.torn-paper-edge {
-  width: 100%;
-  height: 24px;
-  background: var(--color-paper);
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 30' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L0,15 Q30,8 60,18 T120,12 T180,20 T240,10 T300,16 T360,8 T420,18 T480,12 T540,22 T600,10 T660,18 T720,14 T780,22 T840,12 T900,18 T960,10 T1020,20 T1080,14 T1140,18 T1200,10 L1200,0 Z' fill='%23000'/%3E%3C/svg%3E");
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 30' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L0,15 Q30,8 60,18 T120,12 T180,20 T240,10 T300,16 T360,8 T420,18 T480,12 T540,22 T600,10 T660,18 T720,14 T780,22 T840,12 T900,18 T960,10 T1020,20 T1080,14 T1140,18 T1200,10 L1200,0 Z' fill='%23000'/%3E%3C/svg%3E");
-  mask-size: 100% 100%;
-  -webkit-mask-size: 100% 100%;
+  .dough-card,
+  .polaroid-wrapper,
+  .oven-card-wrap,
+  .wine-napkin-card {
+    max-width: 95%;
+    margin-inline: auto;
+    border-radius: 8px;
+  }
+
+  .dough-card,
+  .img-dough,
+  .oven-card-wrap,
+  .oven-card,
+  .polaroid-card {
+    border-radius: 8px;
+  }
+
+  .cheese-pull-spine {
+    width: clamp(240px, 72vw, 320px);
+    top: 55px;
+    z-index: 5;
+    opacity: 0.9;
+  }
+
+  .brand-hero-title {
+    font-size: clamp(3.2rem, 16vw, 5.5rem);
+  }
+
+  .postit-dough {
+    left: 10px;
+    top: 10px;
+  }
+
+  .seal-green-scrap-wrap {
+    bottom: -10px;
+    right: 10px;
+  }
 }

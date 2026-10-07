@@ -7,24 +7,33 @@ def audit():
 
     with sync_playwright() as p:
         browser = p.chromium.launch()
-        for w in [390, 768, 1024, 1440, 1920, 2560]:
+        for w in [1440, 390]:
             page = browser.new_page(viewport={'width': w, 'height': 900})
             page.goto(file_url, wait_until='networkidle')
             
-            scroll_w = page.evaluate('document.documentElement.scrollWidth')
-            client_w = page.evaluate('document.documentElement.clientWidth')
-            has_h_overflow = scroll_w > client_w
+            total_h = page.evaluate('document.documentElement.scrollHeight')
+            print(f"=== VIEWPORT {w}px (Total Height: {total_h:.1f}px) ===")
             
-            title_box = page.query_selector('.brand-hero-title').bounding_box()
-            cheese_box = page.query_selector('.cheese-pull-spine').bounding_box()
-            container_box = page.query_selector('.editorial-container').bounding_box()
+            sections = ['hero-crust-alchemy', 'materia-prima-pura', 'forno-e-tempo', 'table-reservations']
+            for s in sections:
+                box = page.query_selector(f'#{s}').bounding_box()
+                print(f"Section #{s}: y={box['y']:.1f}, h={box['height']:.1f} ({box['height']/total_h*100:.1f}%)")
             
-            print(f"Viewport {w}px:")
-            print(f"  Overflow: {has_h_overflow} (client={client_w}, scroll={scroll_w})")
-            print(f"  Container width: {container_box['width']:.1f}px (left margin: {container_box['x']:.1f}px)")
-            print(f"  Title width: {title_box['width']:.1f}px, height: {title_box['height']:.1f}px")
-            print(f"  Cheese pull: width={cheese_box['width']:.1f}px, x={cheese_box['x']:.1f}px (center offset: {(cheese_box['x'] + cheese_box['width']/2) - w/2:.1f}px)")
-            print()
+            # Key images
+            elements = [
+                ('Dough Card', '.dough-card'),
+                ('Polaroid Card', '.polaroid-wrapper'),
+                ('Oven Card', '.oven-card-wrap'),
+                ('Wine Napkin Card', '.wine-napkin-card'),
+                ('Cheese Ribbon', '.cheese-pull-spine')
+            ]
+            print("\nImage Elements:")
+            for name, sel in elements:
+                el = page.query_selector(sel)
+                if el:
+                    box = el.bounding_box()
+                    print(f"  {name}: x={box['x']:.1f}, y={box['y']:.1f}, w={box['width']:.1f}px ({box['width']/w*100:.1f}% of screen), h={box['height']:.1f}px")
+            print("\n" + "="*50 + "\n")
             page.close()
         browser.close()
 
