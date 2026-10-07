@@ -380,6 +380,175 @@
     },
 
     /**
+     * Coreografia Artesanal Avançada do Hero (Letterpress + Rubber Stamp + Micro-Parallax)
+     */
+    setupHeroChoreography() {
+      if (!window.gsap) return;
+
+      const heroSec = document.getElementById('hero-crust-alchemy');
+      if (!heroSec) return;
+
+      if (this.mode === 'reduced') {
+        return;
+      }
+
+      // 1. Prensa Tipográfica / Letterpress para cada letra de NOVARA
+      const letters = heroSec.querySelectorAll('.hero-letter');
+      if (letters.length) {
+        window.gsap.fromTo(letters,
+          {
+            opacity: 0,
+            y: 40,
+            scale: 1.15,
+            rotate: (i) => [-3, 2, -1.5, 3, -2, 1.5][i % 6]
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            rotate: 0,
+            duration: 0.85,
+            stagger: 0.07,
+            ease: 'back.out(1.8)',
+            delay: 0.05
+          }
+        );
+      }
+
+      // 2. Carimbada Física dos Stickers de Topo com Overshoot Elástico
+      const waxSeal = heroSec.querySelector('.hero-wax-container');
+      if (waxSeal) {
+        window.gsap.fromTo(waxSeal,
+          { opacity: 0, scale: 1.45, rotation: 14 },
+          { opacity: 1, scale: 1, rotation: 0, duration: 0.75, ease: 'back.out(2.2)', delay: 0.3 }
+        );
+      }
+
+      const basil = heroSec.querySelector('.sticker-basil-wrap');
+      if (basil) {
+        window.gsap.fromTo(basil,
+          { opacity: 0, scale: 0.4, y: -30, rotation: -25 },
+          { opacity: 1, scale: 1, y: 0, rotation: 20, duration: 0.85, ease: 'elastic.out(1, 0.55)', delay: 0.4 }
+        );
+      }
+
+      const smile = heroSec.querySelector('.sticker-smile-hero');
+      if (smile) {
+        window.gsap.fromTo(smile,
+          { opacity: 0, scale: 0.5, rotation: -18 },
+          { opacity: 1, scale: 1, rotation: 8, duration: 0.75, ease: 'back.out(2.5)', delay: 0.5 }
+        );
+      }
+
+      // 3. Google Social Proof: Estrela com pulso dourado
+      const star = heroSec.querySelector('.proof-star');
+      if (star) {
+        window.gsap.fromTo(star,
+          { scale: 0.75 },
+          { scale: 1, duration: 0.6, delay: 0.55, ease: 'back.out(2.2)' }
+        );
+      }
+
+      // 4. Tomate e Molho Caseiro (carimbo artesanal)
+      const tomato = heroSec.querySelector('.tomato-badge-flow');
+      if (tomato) {
+        window.gsap.fromTo(tomato,
+          { opacity: 0, scale: 0.82, y: 22, rotation: -6 },
+          { opacity: 1, scale: 1, y: 0, rotation: 0, duration: 0.7, ease: 'back.out(1.8)', delay: 0.6 }
+        );
+      }
+
+      // 5. Post-it 48 Horas: Efeito de papel colado com fita adesiva (balanço pendular)
+      const postit = heroSec.querySelector('.postit-dough');
+      if (postit) {
+        window.gsap.fromTo(postit,
+          { opacity: 0, rotation: -14, scale: 0.88, y: 18 },
+          { opacity: 1, rotation: -3, scale: 1, y: 0, duration: 0.9, ease: 'elastic.out(1.1, 0.5)', delay: 0.7 }
+        );
+      }
+
+      // 6. Micro-parallax interativo de cursor no Hero (somente em Desktop Quality High)
+      if (this.quality === 'high' && window.innerWidth >= 992) {
+        this.setupHeroMouseParallax(heroSec);
+      }
+    },
+
+    /**
+     * Parallax interativo com cursor do mouse sobre o Hero (Sensação 3D de Scrapbook)
+     */
+    setupHeroMouseParallax(heroSec) {
+      const letters = heroSec.querySelector('.brand-hero-title');
+      const stickers = heroSec.querySelector('.hero-stickers-layer');
+      const doughCard = heroSec.querySelector('.dough-card');
+      const tomato = heroSec.querySelector('.tomato-badge-flow');
+
+      let bounds = heroSec.getBoundingClientRect();
+      window.addEventListener('resize', () => {
+        bounds = heroSec.getBoundingClientRect();
+      });
+
+      heroSec.addEventListener('mousemove', (e) => {
+        if (this.mode !== 'full') return;
+        const xRel = (e.clientX - bounds.left) / bounds.width - 0.5;
+        const yRel = (e.clientY - bounds.top) / bounds.height - 0.5;
+
+        if (letters) {
+          window.gsap.to(letters, {
+            x: xRel * 8,
+            y: yRel * 6,
+            duration: 0.6,
+            ease: 'power1.out',
+            overwrite: 'auto'
+          });
+        }
+
+        if (stickers) {
+          window.gsap.to(stickers, {
+            x: xRel * -16,
+            y: yRel * -12,
+            duration: 0.8,
+            ease: 'power1.out',
+            overwrite: 'auto'
+          });
+        }
+
+        if (tomato) {
+          window.gsap.to(tomato, {
+            x: xRel * 12,
+            y: yRel * 10,
+            duration: 0.7,
+            ease: 'power1.out',
+            overwrite: 'auto'
+          });
+        }
+
+        if (doughCard) {
+          window.gsap.to(doughCard, {
+            x: xRel * -10,
+            y: yRel * -8,
+            duration: 0.9,
+            ease: 'power1.out',
+            overwrite: 'auto'
+          });
+        }
+      });
+
+      // Retorno elástico calmo quando o cursor sai do Hero
+      heroSec.addEventListener('mouseleave', () => {
+        const targets = [letters, stickers, tomato, doughCard].filter(Boolean);
+        if (targets.length) {
+          window.gsap.to(targets, {
+            x: 0,
+            y: 0,
+            duration: 1.2,
+            ease: 'power2.out',
+            overwrite: 'auto'
+          });
+        }
+      });
+    },
+
+    /**
      * Configurar botão acessível de toggle de animações (Play/Pause)
      */
     setupToggleButton() {
@@ -417,7 +586,8 @@
       this.initLenis();
       this.setupVisibilityObserver();
 
-      // Configuração declarativa
+      // Configuração declarativa e coreografia do Hero
+      this.setupHeroChoreography();
       this.setupReveals();
       this.setupParallax();
       this.setupLoops();

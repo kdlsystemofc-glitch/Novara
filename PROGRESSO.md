@@ -73,11 +73,18 @@
   - Lighthouse Mobile pós-Fase C: Performance 65/100, Acessibilidade 100/100, Melhores Práticas 88/100, SEO 91/100.
   - Tag registrada: `motion-pronto`.
 
+- [x] **Refinamento Avançado do Hero (Letterpress, Overshoot Físico e Micro-Parallax de Cursor):**
+  - Desmembramento acessível do título `NOVARA` com efeito de prensa tipográfica artesanal (*letterpress strike*): cada letra cai com micro-stagger de 70ms e rotação imperfeita, assentando com firmeza no papel.
+  - Carimbada física com overshoot elástico nos adesivos de vinil (selo de cera com `scale: 1.45 -> 1.0`, folha de manjericão flutuando em queda elástica, smile amarelo com salto alegre e post-it 48h com balanço pendular de fita adesiva).
+  - Micro-parallax tátil atrelado à movimentação do cursor do mouse no desktop (`mousemove`), conferindo profundidade tridimensional física de scrapbook sem sobrecarga.
+  - Micro-interações táteis de hover em todos os stickers com resposta elástica e rotação dinâmica.
+  - Suíte [`scripts/test_hero_letters.py`](file:///c:/Oficial/Novara%203/scripts/test_hero_letters.py) aprovada e vídeo atualizado em [`screenshots/videos/novara_motion_walkthrough.webm`](file:///c:/Oficial/Novara%203/screenshots/videos/novara_motion_walkthrough.webm).
+
 ---
 
 ## 2. Status Final da Implementação
 - **Layout Estático:** 100% responsivo aprovado (12 resoluções, sem contêiner fixo, full-bleed).
-- **Sistema de Motion:** Fases A, B e C concluídas com regressão verde e zero quebras estruturais.
+- **Sistema de Motion:** Fases A, B e C concluídas com coreografia do Hero de alto impacto artesanal.
 - **Tag:** `motion-pronto`.
 
 
